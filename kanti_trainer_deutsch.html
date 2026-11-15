@@ -1,0 +1,1929 @@
+<!doctype html><html lang="de-CH"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><title>Kanti-Trainer Deutsch</title>
+<meta name="author" content="Alexander Weng">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: Halingen-Designsystem wie die Leistungs-App – dunkle Kopfzeile mit Logo, Stufe/XP/Serie, darunter Lernpfad-Karten; Übungen in einer Spalte, Leseverstehen zweispaltig */
+:root {
+  --gray-950: oklch(0.18 0.006 240); --gray-900: oklch(0.24 0.006 240); --gray-700: oklch(0.42 0.006 240);
+  --gray-500: oklch(0.58 0.006 240); --gray-300: oklch(0.80 0.005 240); --gray-150: oklch(0.90 0.004 240);
+  --gray-100: oklch(0.95 0.003 240); --gray-50: oklch(0.985 0.002 240); --white: oklch(0.99 0.001 240);
+  --accent-700: oklch(0.38 0.075 155); --accent-600: oklch(0.45 0.08 155); --accent-100: oklch(0.95 0.02 155);
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Source Sans 3', Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, monospace;
+  --text-xs: .75rem; --text-sm: .875rem; --text-base: 1rem; --text-md: 1.125rem; --text-lg: 1.375rem; --text-xl: 1.75rem; --text-2xl: 2.25rem; --text-3xl: 3rem;
+  --tw: .12em;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
+  --r: 8px;
+  --bg: var(--white); --surface: var(--white); --subtle: var(--gray-100);
+  --text: var(--gray-950); --muted: var(--gray-700); --line: var(--gray-950); --line-soft: var(--gray-300);
+  --primary: var(--accent-600); --on-primary: var(--white); --accent-text: var(--accent-700); --accent-bg: var(--accent-100);
+  --good: oklch(0.40 0.09 155); --good-bg: oklch(0.94 0.045 155);
+  --bad: oklch(0.46 0.13 25); --bad-bg: oklch(0.95 0.035 25);
+  --warn: oklch(0.42 0.09 75); --warn-bg: oklch(0.95 0.05 80);
+  --gold: oklch(0.72 0.13 80); --gold-ink: oklch(0.30 0.06 75);
+  --mark: oklch(0.93 0.12 100); --mark-ink: var(--gray-950);
+  --header-bg: var(--gray-950); --header-text: var(--white); --header-muted: var(--gray-300); --header-line: oklch(0.45 0.006 240);
+  --bar-track: var(--gray-150); --bar-fill: var(--accent-600); --xp-fill: oklch(0.78 0.12 155);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  color-scheme: dark;
+  --bg: var(--gray-950); --surface: var(--gray-900); --subtle: oklch(0.21 0.006 240);
+  --text: var(--gray-50); --muted: var(--gray-300); --line: var(--gray-300); --line-soft: var(--gray-700);
+  --primary: oklch(0.78 0.12 155); --on-primary: var(--gray-950); --accent-text: oklch(0.84 0.11 155); --accent-bg: oklch(0.27 0.05 155);
+  --good: oklch(0.84 0.12 155); --good-bg: oklch(0.27 0.05 155); --bad: oklch(0.82 0.10 25); --bad-bg: oklch(0.28 0.05 25);
+  --warn: oklch(0.86 0.10 80); --warn-bg: oklch(0.29 0.05 75); --gold: oklch(0.80 0.13 85); --gold-ink: var(--gray-950);
+  --mark: oklch(0.82 0.13 100); --header-bg: oklch(0.13 0.006 240); --bar-track: var(--gray-700); --bar-fill: oklch(0.78 0.12 155);
+} }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: var(--gray-950); --surface: var(--gray-900); --subtle: oklch(0.21 0.006 240);
+  --text: var(--gray-50); --muted: var(--gray-300); --line: var(--gray-300); --line-soft: var(--gray-700);
+  --primary: oklch(0.78 0.12 155); --on-primary: var(--gray-950); --accent-text: oklch(0.84 0.11 155); --accent-bg: oklch(0.27 0.05 155);
+  --good: oklch(0.84 0.12 155); --good-bg: oklch(0.27 0.05 155); --bad: oklch(0.82 0.10 25); --bad-bg: oklch(0.28 0.05 25);
+  --warn: oklch(0.86 0.10 80); --warn-bg: oklch(0.29 0.05 75); --gold: oklch(0.80 0.13 85); --gold-ink: var(--gray-950);
+  --mark: oklch(0.82 0.13 100); --header-bg: oklch(0.13 0.006 240); --bar-track: var(--gray-700); --bar-fill: oklch(0.78 0.12 155);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.45; min-height: 100vh; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--header-bg); }
+h1, h2, h3, p { margin: 0; }
+button { font: inherit; color: inherit; }
+.mono { font-family: var(--font-mono); }
+.b { font-weight: 700; }
+.small { font-size: var(--text-sm); color: var(--muted); }
+.tag { font-size: var(--text-xs); font-weight: 700; letter-spacing: var(--tw); text-transform: uppercase; color: var(--accent-text); }
+.tag.inv { color: var(--header-muted); }
+:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: var(--s5) var(--s7); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap.wide { max-width: 1280px; }
+
+/* Kopf */
+.top { background: var(--header-bg); color: var(--header-text); padding-block: var(--s4) var(--s5); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-bottom: 2px solid var(--line); }
+.top > * { max-width: 728px; margin-left: auto; margin-right: auto; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin-bottom: var(--s5); flex-wrap: wrap; }
+.logochip { background: #fff; border-radius: var(--r); padding: 6px 10px; display: flex; }
+.logochip img { height: 34px; width: auto; display: block; }
+@media (max-width: 480px) { .tabs button { font-size: var(--text-sm); } }
+.top h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.2rem, 7vw, 3.5rem); line-height: 1.05; letter-spacing: -0.01em; }
+.lead { color: var(--header-muted); margin-top: var(--s2); }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s2); margin-top: var(--s5); }
+.stat { border: 2px solid var(--header-line); border-radius: var(--r); padding: var(--s3); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.stat .k { font-size: var(--text-xs); font-weight: 700; letter-spacing: var(--tw); text-transform: uppercase; color: var(--header-muted); }
+.stat .v { font-weight: 700; font-size: var(--text-md); line-height: 1.15; overflow-wrap: break-word; hyphens: auto; }
+.stat .s { font-size: var(--text-xs); color: var(--header-muted); }
+.xpbar { height: 12px; border-radius: 6px; background: var(--header-line); margin-top: var(--s4); overflow: hidden; }
+.xpbar > div { height: 100%; background: var(--xp-fill); border-radius: 6px; transition: width .9s cubic-bezier(.3,.8,.3,1); }
+.xpbar.light { background: var(--bar-track); margin: var(--s3) 0 var(--s4); }
+.xpbar.light > div { background: var(--bar-fill); transition: width .35s ease; }
+.tabs { display: flex; gap: var(--s2); margin-top: var(--s5); flex-wrap: wrap; }
+.tabs button { flex: 1 1 0; min-width: 0; padding: 0 8px; min-height: 44px; border: 2px solid var(--header-line); background: transparent; color: var(--header-text); border-radius: var(--r); font-weight: 700; cursor: pointer; }
+.tabs button[aria-current="page"] { background: var(--header-text); color: var(--header-bg); border-color: var(--header-text); }
+
+/* Lernpfad */
+.row { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin: var(--s5) 0 var(--s3); flex-wrap: wrap; }
+.row h2, .sumh, .lh { font-family: var(--font-display); font-weight: 600; font-size: var(--text-xl); line-height: 1.15; }
+.path { display: flex; flex-direction: column; gap: var(--s3); }
+.card { background: var(--surface); border: 2px solid var(--line); border-radius: var(--r); padding: var(--s4); min-width: 0; }
+.st { display: grid; grid-template-columns: 44px 1fr; grid-template-areas: "num body" "act act"; gap: var(--s3); align-items: start; }
+.st .num { grid-area: num; width: 44px; height: 44px; border-radius: 50%; background: var(--text); color: var(--bg); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: var(--text-md); }
+.st .stbody { grid-area: body; min-width: 0; }
+.st > .btn { grid-area: act; width: 100%; }
+.st h3, .review h3, .chal h3 { font-family: var(--font-display); font-weight: 600; font-size: var(--text-lg); line-height: 1.2; }
+.sub { font-size: var(--text-sm); color: var(--accent-text); margin-top: 2px; font-weight: 600; }
+.mast { display: flex; gap: 3px; margin-top: var(--s3); }
+.seg { height: 8px; flex: 1; border-radius: 3px; background: var(--bar-track); }
+.seg.on { background: var(--bar-fill); }
+.starsrow { display: flex; align-items: center; gap: var(--s3); margin-top: var(--s2); flex-wrap: wrap; }
+.stars { font-size: var(--text-lg); letter-spacing: 3px; color: var(--gold); line-height: 1; }
+.stars .off { color: var(--line-soft); }
+.review { display: grid; gap: var(--s3); background: var(--accent-bg); }
+.review p { margin-top: var(--s1); color: var(--text); }
+.cathead { display: flex; align-items: baseline; gap: var(--s3); margin: var(--s6) 0 var(--s3); flex-wrap: wrap; }
+.cathead h2 { font-family: var(--font-display); font-weight: 600; font-size: var(--text-xl); }
+@media (min-width: 560px) {
+  .st { grid-template-columns: 44px 1fr auto; grid-template-areas: "num body act"; align-items: center; }
+  .st > .btn { width: auto; min-width: 120px; }
+  .review { grid-template-columns: 1fr auto; align-items: center; }
+  .review > .btn { min-width: 170px; }
+}
+
+/* Buttons */
+.btn { appearance: none; min-height: 52px; padding: 0 var(--s5); border: 2px solid var(--line); border-radius: var(--r); background: var(--surface); color: var(--text); font: 700 var(--text-md)/1.1 var(--font-body); cursor: pointer; }
+.btn:hover { background: var(--subtle); }
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.btn-primary:hover { background: var(--primary); filter: brightness(1.08); }
+.btn.sm { min-height: 40px; padding: 0 var(--s3); font-size: var(--text-sm); }
+.btn.block { display: block; width: 100%; margin-top: var(--s3); }
+.btn:disabled { opacity: .4; cursor: default; }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; cursor: pointer; font-size: inherit; }
+
+/* Runde */
+.rtop { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); flex-wrap: wrap; }
+.qcard { padding: var(--s5) var(--s4); }
+.tags { display: flex; flex-wrap: wrap; gap: var(--s2); align-items: center; margin-bottom: var(--s3); }
+.badge { font-size: var(--text-xs); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; background: var(--text); color: var(--bg); }
+.instr { font-weight: 700; margin-bottom: var(--s2); }
+.merk { margin: var(--s2) 0 var(--s4); }
+.merk summary { cursor: pointer; color: var(--accent-text); font-weight: 700; font-size: var(--text-sm); list-style: none; display: inline-flex; gap: 8px; align-items: center; }
+.merk summary::-webkit-details-marker { display: none; }
+.merk summary::before { content: "★"; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--primary); color: var(--on-primary); font-size: 12px; }
+.merk > div { margin-top: var(--s2); border: 2px solid var(--primary); background: var(--accent-bg); border-radius: var(--r); padding: var(--s3); font-size: var(--text-base); }
+.q { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.3rem, 3.6vw, 1.6rem); line-height: 1.45; margin: var(--s2) 0 var(--s5); }
+.q u { text-decoration: none; background: linear-gradient(transparent 58%, var(--mark) 58%); padding: 0 2px; }
+.q .target { display: inline-block; font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 700; letter-spacing: .04em; background: var(--text); color: var(--bg); padding: 3px 8px; border-radius: 4px; vertical-align: middle; margin-left: 8px; }
+.opts { display: flex; flex-direction: column; gap: var(--s3); }
+.opts.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.opt { appearance: none; display: flex; align-items: flex-start; gap: var(--s3); text-align: left; width: 100%; min-height: 52px; padding: var(--s3) var(--s4); border: 2px solid var(--line); border-radius: var(--r); background: var(--surface); color: var(--text); font: 500 var(--text-md)/1.35 var(--font-body); cursor: pointer; }
+.opt:hover:not(:disabled) { background: var(--subtle); }
+.opt .ltr { flex: none; width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: var(--text-sm); }
+.opt:disabled { cursor: default; opacity: .75; }
+.opt.sel { background: var(--accent-bg); border-color: var(--primary); }
+.opt.good { opacity: 1; background: var(--good-bg); border-color: var(--good); color: var(--good); }
+.opt.good .ltr { background: var(--good); color: var(--good-bg); border-color: var(--good); }
+.opt.bad { opacity: 1; background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
+.opt.bad .ltr { background: var(--bad); color: var(--bad-bg); border-color: var(--bad); }
+.ansrow { display: flex; gap: var(--s3); flex-wrap: wrap; }
+.numin { flex: 1 1 260px; min-width: 0; min-height: 56px; padding: 0 var(--s4); border: 2px solid var(--line); border-radius: var(--r); background: var(--surface); color: var(--text); font: 600 var(--text-lg) var(--font-body); }
+.numin.ok { border-color: var(--good); background: var(--good-bg); }
+.numin.err { border-color: var(--bad); background: var(--bad-bg); }
+.fb { margin-top: var(--s4); border: 2px solid; border-radius: var(--r); padding: var(--s4); }
+.fb .fbt { font-weight: 700; font-size: var(--text-md); margin-bottom: var(--s1); display: flex; justify-content: space-between; gap: var(--s2); }
+.fb .fbb { font-size: var(--text-base); line-height: 1.5; color: var(--text); }
+.fb .sol { font-family: var(--font-display); font-size: var(--text-md); color: var(--text); }
+.fb .xp { font-size: var(--text-sm); color: var(--muted); margin-top: 4px; }
+.fb.good { background: var(--good-bg); border-color: var(--good); color: var(--good); }
+.fb.bad { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
+.fb.warn { background: var(--warn-bg); border-color: var(--warn); color: var(--warn); }
+.xppop { background: var(--gold); color: var(--gold-ink); border-radius: 999px; padding: 0 10px; font-family: var(--font-mono); font-size: var(--text-sm); white-space: nowrap; }
+
+/* Markieren und Lücken */
+.toks { font-family: var(--font-display); font-size: clamp(1.25rem, 3.4vw, 1.5rem); line-height: 2.1; margin: var(--s2) 0 var(--s5); }
+.tok { border: 0; background: transparent; padding: 1px 3px; margin: 0 -1px; border-radius: 4px; font: inherit; line-height: 1.4; border-bottom: 2px dotted var(--line-soft); cursor: pointer; color: var(--text); }
+.tok:hover:not(:disabled) { background: var(--subtle); }
+.tok.sel { background: var(--mark); color: var(--mark-ink); border-bottom-color: transparent; }
+.tok.right { background: var(--good-bg); color: var(--good); font-weight: 600; border-bottom: 2px solid var(--good); }
+.tok.wrong { background: var(--bad-bg); color: var(--bad); text-decoration: line-through; border-bottom-color: transparent; }
+.tok.miss { outline: 2px dashed var(--good); outline-offset: 1px; }
+.tok:disabled { cursor: default; }
+.gtext { font-family: var(--font-display); font-size: clamp(1.2rem, 3.2vw, 1.45rem); line-height: 2.3; margin: var(--s2) 0 var(--s5); }
+.gtext .w { white-space: nowrap; }
+.gap { display: inline-block; width: 22px; height: 1.6em; vertical-align: middle; border: 0; padding: 0; margin: 0 1px; background: transparent; border-radius: 4px; position: relative; font: 700 20px/1.6em var(--font-mono); color: var(--primary); cursor: pointer; }
+.gap::before { content: ""; position: absolute; left: 50%; top: 18%; bottom: 18%; width: 2px; transform: translateX(-50%); background: var(--line-soft); }
+.gap:hover:not(:disabled) { background: var(--subtle); }
+.gap.on::before, .gap.miss::before { display: none; }
+.gap.right { color: var(--good); background: var(--good-bg); }
+.gap.wrong { color: var(--bad); background: var(--bad-bg); text-decoration: line-through; }
+.gap.miss { color: var(--good); outline: 2px dashed var(--good); }
+.gap:disabled { cursor: default; }
+
+/* Ergebnis */
+.bigstars { font-size: var(--text-3xl); letter-spacing: 6px; line-height: 1; margin: var(--s2) 0 var(--s3); }
+.bigstars span { display: inline-block; color: var(--line-soft); animation: starin .5s var(--d, 0ms) both; }
+.bigstars span.on { color: var(--gold); }
+.lead2 { font-size: var(--text-lg); margin-bottom: var(--s3); }
+.gain { display: flex; align-items: baseline; gap: var(--s3); margin-bottom: var(--s2); flex-wrap: wrap; }
+.gain .b { font-size: var(--text-xl); color: var(--accent-text); }
+.miss { margin-top: var(--s4); padding-top: var(--s3); border-top: 2px solid var(--line); }
+.recap { display: grid; gap: var(--s2); margin-top: var(--s2); }
+.recap .it { border: 2px solid var(--line-soft); border-radius: var(--r); padding: var(--s3); }
+.recap .it .qq { font-family: var(--font-display); }
+.recap .it .a { color: var(--good); font-weight: 700; }
+.summary .card { position: relative; overflow: hidden; }
+
+/* Pokale */
+.trophies { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s2); margin-top: var(--s3); }
+.trophy { border: 2px solid var(--line-soft); border-radius: var(--r); padding: var(--s3); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; background: var(--surface); min-width: 0; }
+.trophy svg { width: 40px; height: 40px; fill: var(--line-soft); }
+.trophy b { font-size: var(--text-sm); line-height: 1.2; }
+.trophy span { font-size: var(--text-xs); color: var(--muted); line-height: 1.3; }
+.trophy.on { border-color: var(--line); background: var(--accent-bg); }
+.trophy.on svg { fill: var(--gold); filter: drop-shadow(0 2px 0 var(--gold-ink)); }
+.trophy.new { animation: pop .5s both; }
+.trophyrow { display: flex; gap: 6px; flex-wrap: wrap; margin-top: var(--s2); }
+.trophyrow svg { width: 26px; height: 26px; fill: var(--line-soft); }
+.trophyrow svg.on { fill: var(--gold); }
+
+/* Leseverstehen */
+.rlist { display: flex; flex-direction: column; gap: var(--s3); }
+.reader { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: var(--s5); align-items: start; margin-top: var(--s3); }
+@media (max-width: 900px) { .reader { grid-template-columns: minmax(0, 1fr); } }
+.textpane { background: var(--surface); border: 2px solid var(--line); border-radius: var(--r); padding: var(--s5) var(--s4) var(--s5) var(--s2); position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); max-height: calc(100vh - 24px); overflow: auto; }
+@media (max-width: 900px) { .textpane { position: static; max-height: none; } }
+.textpane h2 { font-family: var(--font-display); font-weight: 600; font-size: var(--text-xl); padding-left: 44px; margin-bottom: var(--s3); }
+.ln { display: grid; grid-template-columns: 36px 1fr; gap: 8px; font-family: var(--font-display); font-size: 1rem; line-height: 1.65; }
+.ln span:first-child { font-family: var(--font-mono); font-size: 11px; color: var(--muted); text-align: right; padding-top: 5px; }
+.ln.hl span:last-child { background: var(--mark); color: var(--mark-ink); }
+@media (min-width: 901px) { .ln span:last-child { white-space: nowrap; } }
+@media (max-width: 900px) { .ln + .ln { margin-top: 4px; } .ln { line-height: 1.45; } }
+.src { padding-left: 44px; margin-top: var(--s3); font-size: var(--text-sm); color: var(--muted); }
+.qs { display: grid; gap: var(--s3); }
+.qbox .qh { display: flex; gap: var(--s3); align-items: baseline; margin-bottom: var(--s3); }
+.qbox .qn { font-family: var(--font-display); font-weight: 600; font-size: var(--text-xl); min-width: 24px; line-height: 1; }
+.qbox .qt { font-weight: 700; flex: 1; }
+.qbox .pts { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--muted); white-space: nowrap; }
+.stbl { width: 100%; border-collapse: collapse; font-size: var(--text-base); }
+.stbl td { border-top: 1px solid var(--line-soft); padding: 8px 4px; vertical-align: top; }
+.stbl td.c { width: 1%; white-space: nowrap; }
+.segb { display: inline-flex; border: 2px solid var(--line); border-radius: var(--r); overflow: hidden; flex-wrap: wrap; }
+.segb button { border: 0; background: var(--surface); padding: 6px 10px; font-size: var(--text-sm); font-weight: 700; border-left: 2px solid var(--line); cursor: pointer; }
+.segb button:first-child { border-left: 0; }
+.segb button.sel { background: var(--primary); color: var(--on-primary); }
+.segb button.right { background: var(--good); color: var(--good-bg); }
+.segb button.wrong { background: var(--bad); color: var(--bad-bg); }
+.segb button:disabled { cursor: default; }
+.xpl { font-size: var(--text-sm); color: var(--muted); margin-top: 4px; }
+.xpl.bad { color: var(--bad); }
+textarea { width: 100%; min-height: 96px; font: var(--text-base)/1.5 var(--font-body); color: var(--text); background: var(--subtle); border: 2px solid var(--line-soft); border-radius: var(--r); padding: 10px 12px; resize: vertical; }
+.model { margin-top: var(--s3); padding: var(--s3); border-radius: var(--r); background: var(--accent-bg); border: 2px solid var(--primary); font-size: var(--text-base); }
+.model ul { margin: 6px 0 0; padding-left: 20px; }
+.selfscore { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: var(--s3); font-size: var(--text-sm); font-weight: 700; }
+.total { position: sticky; bottom: max(12px, env(safe-area-inset-bottom, 0px)); background: var(--header-bg); color: var(--header-text); border-radius: var(--r); padding: var(--s3) var(--s4); display: flex; gap: var(--s3); align-items: center; flex-wrap: wrap; justify-content: space-between; margin-top: var(--s4); }
+.total b { font-family: var(--font-mono); font-size: var(--text-lg); }
+
+/* Lernstand */
+.statgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s2); }
+.statgrid .card b { display: block; font-family: var(--font-mono); font-size: var(--text-xl); }
+.typelist { display: grid; gap: 8px; margin-top: var(--s3); }
+.typelist .r { display: grid; grid-template-columns: minmax(0, 1fr) 110px 60px; gap: var(--s3); align-items: center; font-size: var(--text-base); }
+.typelist .r .stars { font-size: var(--text-base); text-align: right; letter-spacing: 1px; }
+.codebox { font-family: var(--font-mono); font-size: var(--text-xs); min-height: 80px; word-break: break-all; }
+
+/* Fuss */
+.foot { margin-top: var(--s6); padding-top: var(--s4); border-top: 2px solid var(--line); display: flex; justify-content: space-between; gap: var(--s3); align-items: center; flex-wrap: wrap; }
+.foot .author { font-weight: 700; }
+.foot .logochip { border: 2px solid var(--line-soft); }
+
+/* Animationen */
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes pop { 0% { opacity: 0; transform: scale(.94); } 60% { transform: scale(1.02); } 100% { opacity: 1; transform: none; } }
+@keyframes shake { 0%, 100% { transform: none; } 20% { transform: translateX(-7px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(3px); } }
+@keyframes pulse { 0% { transform: scale(1); } 40% { transform: scale(1.025); } 100% { transform: scale(1); } }
+@keyframes starin { 0% { opacity: 0; transform: scale(.2) rotate(-40deg); } 70% { transform: scale(1.25) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes fly { 0% { opacity: 1; transform: translate(0, 0) rotate(0); } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--r)); } }
+.view { animation: rise .35s both; }
+.path > * { animation: rise .45s both; animation-delay: calc(var(--i, 0) * 50ms); }
+.fb { animation: pop .3s both; }
+.opt.bad, .numin.err { animation: shake .45s; }
+.opt.good { animation: pulse .5s; }
+.confetti { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.confetti span { position: absolute; left: 50%; top: 30%; width: 9px; height: 14px; border-radius: 2px; animation: fly 1.3s ease-out both; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+<div id="app" lang="de-CH"></div>
+<script>
+// ===== Aufgabenbank Sprachprüfung (eigene Übungsitems, Format nach AP22–AP26) =====
+const CATS = [
+  { id: 'wort', name: 'Wortschatz & Stil', note: 'Synonyme, Wortfamilien, Redewendungen' },
+  { id: 'verb', name: 'Verben', note: 'Zeitformen, Konjugation, Aktiv/Passiv' },
+  { id: 'wa', name: 'Wortarten', note: 'Bestimmen und im Text finden' },
+  { id: 'satz', name: 'Satzlehre', note: 'Satzglieder, Satzbau' },
+  { id: 'zeichen', name: 'Zeichensetzung', note: 'Kommas, direkte Rede' }
+];
+
+const WA_OPTS = ['Nomen', 'Verb', 'Adjektiv', 'Pronomen', 'Präposition', 'Konjunktion', 'Partikel (Adverb)'];
+const SG_OPTS = ['Subjekt', 'Akkusativobjekt', 'Dativobjekt', 'Genitivobjekt', 'Präpositionalgruppe'];
+
+const TYPES = [
+// ---------------- WORTSCHATZ ----------------
+{ id: 'syn', cat: 'wort', name: 'Begriff streichen', exam: 'jede Prüfung', kind: 'mc',
+  instr: 'Welcher Begriff entspricht dem unterstrichenen Wort am wenigsten? In der Prüfung streichst du ihn durch.',
+  tip: 'Achtung vor Wörtern, die ähnlich <em>klingen</em>, aber etwas anderes bedeuten (gereizt ≠ reizend). Setze jeden Begriff probeweise in den Satz ein.',
+  items: [
+  { q: 'Er antwortete <u>schroff</u>.', o: ['barsch', 'unfreundlich', 'kurz angebunden', 'behutsam'], a: 3, x: '«behutsam» heisst vorsichtig und sanft, also das Gegenteil von schroff.' },
+  { q: 'Die Lage war <u>heikel</u>.', o: ['knifflig', 'delikat', 'brenzlig', 'eindeutig'], a: 3, x: 'Heikel = schwierig, gefährlich. «eindeutig» passt nicht.' },
+  { q: 'Sie <u>zögerte</u> einen Moment.', o: ['schwankte', 'wartete ab', 'zauderte', 'eilte'], a: 3, x: 'Wer zögert, handelt nicht sofort. «eilte» ist das Gegenteil.' },
+  { q: 'Das Publikum war <u>begeistert</u>.', o: ['hingerissen', 'entzückt', 'angetan', 'ernüchtert'], a: 3, x: '«ernüchtert» heisst enttäuscht, die Begeisterung ist weg.' },
+  { q: 'Er <u>verschwieg</u> den Fehler.', o: ['verheimlichte', 'vertuschte', 'gestand', 'behielt für sich'], a: 2, x: 'Wer gesteht, gibt den Fehler zu. Das ist das Gegenteil von verschweigen.' },
+  { q: 'Ihre Bemerkung war <u>spöttisch</u>.', o: ['höhnisch', 'ironisch', 'mitfühlend', 'sarkastisch'], a: 2, x: 'Spott macht sich lustig; «mitfühlend» ist freundlich und warm.' },
+  { q: 'Der Lehrer <u>ermahnte</u> die Klasse.', o: ['rügte', 'tadelte', 'lobte', 'wies zurecht'], a: 2, x: 'Ermahnen ist ein Tadel, loben das Gegenteil.' },
+  { q: 'Sie blieb <u>gelassen</u>.', o: ['ruhig', 'gefasst', 'besonnen', 'gereizt'], a: 3, x: 'Gelassen = ruhig, ohne Aufregung.' },
+  { q: 'Das war eine <u>kühne</u> Idee.', o: ['gewagte', 'mutige', 'verwegene', 'zaghafte'], a: 3, x: 'Kühn = mutig, riskant. «zaghaft» = ängstlich.' },
+  { q: 'Er <u>beteuerte</u> seine Unschuld.', o: ['versicherte', 'bekräftigte', 'beschwor', 'bezweifelte'], a: 3, x: 'Beteuern heisst etwas eindringlich versichern, nicht anzweifeln.' },
+  { q: 'Die Antwort kam <u>prompt</u>.', o: ['sofort', 'unverzüglich', 'umgehend', 'verspätet'], a: 3, x: 'Prompt = ohne Verzögerung.' },
+  { q: 'Sie <u>musterte</u> den Fremden.', o: ['betrachtete', 'beäugte', 'taxierte', 'übersah'], a: 3, x: 'Mustern = genau ansehen. Wer jemanden übersieht, bemerkt ihn gar nicht.' },
+  { q: 'Der Hund wirkte <u>verwahrlost</u>.', o: ['ungepflegt', 'heruntergekommen', 'vernachlässigt', 'gestriegelt'], a: 3, x: '«gestriegelt» heisst sorgfältig gebürstet, also gepflegt.' },
+  { q: 'Er erwähnte es nur <u>beiläufig</u>.', o: ['nebenbei', 'im Vorbeigehen', 'flüchtig', 'ausführlich'], a: 3, x: 'Beiläufig = nebenbei. «ausführlich» heisst genau und lang.' },
+  { q: 'Er war völlig <u>ratlos</u>.', o: ['hilflos', 'verunsichert', 'unschlüssig', 'rätselhaft'], a: 3, x: 'Falle: «rätselhaft» klingt ähnlich, beschreibt aber eine Sache, die man nicht versteht, und nicht einen Menschen, der nicht weiterweiss.' },
+  { q: 'Das Angebot war <u>verlockend</u>.', o: ['reizvoll', 'attraktiv', 'verlogen', 'anziehend'], a: 2, x: 'Falle: «verlogen» klingt ähnlich, heisst aber unehrlich.' },
+  { q: 'Sie <u>schilderte</u> den Unfall.', o: ['beschrieb', 'erzählte', 'berichtete', 'beschilderte'], a: 3, x: '«beschildern» heisst mit Schildern versehen. Nur der Wortstamm ist ähnlich.' },
+  { q: 'Seine Stimme klang <u>gereizt</u>.', o: ['verärgert', 'ungehalten', 'reizend', 'genervt'], a: 2, x: '«reizend» heisst charmant, liebenswert. Das ist eine klassische Prüfungsfalle.' }
+  ]},
+
+{ id: 'fam', cat: 'wort', name: 'Wortfamilie', exam: 'AP24–26', kind: 'input', norm: 'word',
+  instr: 'Notiere ein Wort der gleichen Wortfamilie mit möglichst ähnlicher Bedeutung. Bei Nomen: nicht die Person, die das tut.',
+  tip: 'Gesucht ist meist die kurze Grundform mit Ablaut: greifen → der Griff, schliessen → der Schluss. Achte auf den vorgegebenen Artikel: Er verrät, welches Nomen gesucht ist.',
+  items: [
+  { q: 'denken → <b>der</b> …', a: ['Gedanke'], x: 'denken → der Gedanke' },
+  { q: 'greifen → <b>der</b> …', a: ['Griff'], x: 'greifen → der Griff' },
+  { q: 'verlieren → <b>der</b> …', a: ['Verlust'], x: 'verlieren → der Verlust' },
+  { q: 'geniessen → <b>der</b> …', a: ['Genuss'], x: 'geniessen → der Genuss' },
+  { q: 'fliegen → <b>der</b> …', a: ['Flug'], x: 'fliegen → der Flug' },
+  { q: 'schliessen → <b>der</b> …', a: ['Schluss', 'Verschluss'], x: 'schliessen → der Schluss' },
+  { q: 'ziehen → <b>der</b> …', a: ['Zug'], x: 'ziehen → der Zug' },
+  { q: 'wählen → <b>die</b> …', a: ['Wahl'], x: 'wählen → die Wahl' },
+  { q: 'beweisen → <b>der</b> …', a: ['Beweis'], x: 'beweisen → der Beweis' },
+  { q: 'schreiten → <b>der</b> …', a: ['Schritt'], x: 'schreiten → der Schritt' },
+  { q: 'sehen → <b>die</b> …', a: ['Sicht'], x: 'sehen → die Sicht' },
+  { q: 'frieren → <b>der</b> …', a: ['Frost'], x: 'frieren → der Frost' },
+  { q: 'schiessen → <b>der</b> …', a: ['Schuss'], x: 'schiessen → der Schuss' },
+  { q: 'leiden → <b>das</b> …', a: ['Leid'], x: 'leiden → das Leid' },
+  { q: 'bitten → <b>die</b> …', a: ['Bitte'], x: 'bitten → die Bitte' },
+  { q: 'streiten → <b>der</b> …', a: ['Streit'], x: 'streiten → der Streit' },
+  { q: 'trinken → <b>das</b> …', a: ['Getränk'], x: 'trinken → das Getränk' },
+  { q: 'die Flucht → Verb: …', a: ['fliehen', 'flüchten'], x: 'die Flucht → fliehen (oder flüchten)' },
+  { q: 'der Gesang → Verb: …', a: ['singen'], x: 'der Gesang → singen' },
+  { q: 'der Stich → Verb: …', a: ['stechen'], x: 'der Stich → stechen' },
+  { q: 'der Schwur → Verb: …', a: ['schwören'], x: 'der Schwur → schwören' },
+  { q: 'der Zwang → Verb: …', a: ['zwingen'], x: 'der Zwang → zwingen' },
+  { q: 'die Glut → Verb: …', a: ['glühen'], x: 'die Glut → glühen' },
+  { q: 'die Gabe → Verb: …', a: ['geben'], x: 'die Gabe → geben' }
+  ]},
+
+{ id: 'redew', cat: 'wort', name: 'Redewendungen', exam: 'AP23, AP24', kind: 'input', norm: 'word',
+  instr: 'Ergänze die Redewendung. In allen kommt ein Körperteil vor.',
+  tip: 'Lerne Redewendungen immer mit ihrer Bedeutung. In der Prüfung wird oft beides verlangt.',
+  items: [
+  { q: 'jemandem etwas unter die ___ reiben', a: ['Nase'], x: 'jemandem etwas vorhalten, triumphierend zeigen' },
+  { q: 'sich etwas hinter die ___ schreiben', a: ['Ohren'], x: 'sich etwas gut merken (meist nach einer Rüge)' },
+  { q: 'jemandem die kalte ___ zeigen', a: ['Schulter'], x: 'jemanden absichtlich ignorieren' },
+  { q: 'etwas übers ___ brechen', a: ['Knie'], x: 'etwas übereilt, ohne Überlegung tun' },
+  { q: 'jemanden auf den ___ nehmen', a: ['Arm'], x: 'sich über jemanden lustig machen' },
+  { q: 'kein Blatt vor den ___ nehmen', a: ['Mund'], x: 'offen und direkt sagen, was man denkt' },
+  { q: 'den ___ in den Sand stecken', a: ['Kopf'], x: 'ein Problem nicht sehen wollen' },
+  { q: 'sich die ___ in den Bauch stehen', a: ['Beine'], x: 'sehr lange warten müssen' },
+  { q: 'etwas auf die leichte ___ nehmen', a: ['Schulter'], x: 'etwas nicht ernst genug nehmen' },
+  { q: 'mit einem blauen ___ davonkommen', a: ['Auge'], x: 'gerade noch ohne grossen Schaden davonkommen' },
+  { q: 'für jemanden die ___ ins Feuer legen', a: ['Hand'], x: 'sich voll für jemanden verbürgen' },
+  { q: 'jemandem auf den ___ fühlen', a: ['Zahn'], x: 'jemanden genau prüfen, ausfragen' },
+  { q: 'auf grossem ___ leben', a: ['Fuss'], x: 'viel Geld ausgeben, aufwendig leben' },
+  { q: 'Hals über ___', a: ['Kopf'], x: 'überstürzt, sehr schnell' },
+  { q: 'die ___ voll haben', a: ['Nase'], x: 'genug haben, einer Sache überdrüssig sein' },
+  { q: 'jemandem ein ___ zudrücken', a: ['Auge'], x: 'etwas nachsichtig durchgehen lassen' },
+  { k: 'mc', q: 'Was bedeutet: <u>jemandem die kalte Schulter zeigen</u>?', o: ['jemanden absichtlich ignorieren', 'jemanden trösten', 'jemandem eine Verletzung zeigen', 'jemandem die Meinung sagen'], a: 0 },
+  { k: 'mc', q: 'Was bedeutet: <u>sich in die Haare geraten</u>?', o: ['Streit bekommen', 'sich frisieren', 'sich verlieben', 'sich schämen'], a: 0 },
+  { k: 'mc', q: 'Was bedeutet: <u>auf eigenen Beinen stehen</u>?', o: ['selbstständig sein', 'gut tanzen können', 'sich weigern', 'lange warten'], a: 0 },
+  { k: 'mc', q: 'Was bedeutet: <u>Tomaten auf den Augen haben</u>?', o: ['etwas Offensichtliches nicht sehen', 'müde sein', 'weinen', 'sich schämen'], a: 0 }
+  ]},
+
+{ id: 'verst', cat: 'wort', name: 'Verstärkte Adjektive', exam: 'AP26', kind: 'input', norm: 'word',
+  instr: 'Verstärke das Adjektiv mit einem Nomen (Beispiel: gesund + Kern → kerngesund). Umgangssprachliche Formen wie «saumüde» geben keinen Punkt.',
+  tip: 'Die verstärkten Adjektive schreibt man immer zusammen und klein.',
+  items: [
+  { q: 'leicht', a: ['federleicht'] },
+  { q: 'müde', a: ['todmüde', 'hundemüde', 'sterbensmüde'], x: 'todmüde (hundemüde ist eher umgangssprachlich, todmüde ist sicherer)' },
+  { q: 'schnell', a: ['blitzschnell', 'pfeilschnell'] },
+  { q: 'kalt', a: ['eiskalt', 'bitterkalt'] },
+  { q: 'hart', a: ['steinhart', 'knochenhart', 'stahlhart'] },
+  { q: 'klar', a: ['glasklar', 'sonnenklar', 'kristallklar'] },
+  { q: 'weiss', a: ['schneeweiss', 'kreideweiss', 'blütenweiss'] },
+  { q: 'schwarz', a: ['pechschwarz', 'rabenschwarz', 'kohlrabenschwarz', 'kohlschwarz'] },
+  { q: 'glatt', a: ['spiegelglatt', 'aalglatt'] },
+  { q: 'still', a: ['mäuschenstill', 'mucksmäuschenstill', 'totenstill'] },
+  { q: 'dünn', a: ['hauchdünn', 'fadendünn'] },
+  { q: 'arm', a: ['bettelarm'] },
+  { q: 'reich', a: ['steinreich'] },
+  { q: 'alt', a: ['steinalt', 'uralt'] },
+  { q: 'rot', a: ['feuerrot', 'blutrot', 'kirschrot', 'tomatenrot'] },
+  { q: 'dunkel', a: ['stockdunkel', 'rabendunkel'] },
+  { q: 'gerade', a: ['kerzengerade'] },
+  { q: 'stark', a: ['bärenstark'] },
+  { q: 'fest', a: ['felsenfest'] },
+  { q: 'voll', a: ['randvoll'] },
+  { q: 'grün', a: ['grasgrün', 'giftgrün'] },
+  { q: 'nass', a: ['klatschnass', 'pudelnass', 'tropfnass'] }
+  ]},
+
+{ id: 'stil', cat: 'wort', name: 'Ausdruck & Stil', exam: 'AP26', kind: 'mc',
+  instr: 'Wähle den treffenden Ausdruck oder erkenne den Fehler im Satz.',
+  tip: 'Allgemeine Verben wie «machen», «sagen», «haben» kann man fast immer durch ein genaueres Verb ersetzen.',
+  items: [
+  { q: 'Wir müssen noch die Hausaufgaben <u>machen</u>.', o: ['erledigen', 'bereiten', 'erzeugen', 'treffen'], a: 0 },
+  { q: 'Kannst du heute das Abendessen <u>machen</u>?', o: ['zubereiten', 'erstellen', 'erledigen', 'unternehmen'], a: 0 },
+  { q: 'Wir sollten zuerst einen Plan <u>machen</u>.', o: ['erstellen', 'zubereiten', 'erzeugen', 'bereiten'], a: 0 },
+  { q: 'Am Sonntag wollen wir einen Ausflug <u>machen</u>.', o: ['unternehmen', 'erledigen', 'erstellen', 'treffen'], a: 0 },
+  { q: 'Jetzt müssen wir eine Entscheidung <u>machen</u>.', o: ['treffen', 'bereiten', 'erledigen', 'unternehmen'], a: 0 },
+  { q: 'Er möchte seiner Mutter eine Freude <u>machen</u>.', o: ['bereiten', 'erzeugen', 'erstellen', 'unternehmen'], a: 0 },
+  { q: '«Ich komme nicht mit», <u>sagte</u> sie ganz leise.', o: ['flüsterte', 'kreischte', 'verkündete', 'rief'], a: 0 },
+  { q: '«Nie wieder!», <u>sagte</u> er wütend.', o: ['schimpfte', 'säuselte', 'murmelte', 'hauchte'], a: 0 },
+  { q: 'Die Polizei <u>bekam</u> den Täter endlich.', o: ['fasste', 'erledigte', 'bereitete', 'fertigte'], a: 0 },
+  { q: 'Der Arzt <u>gab</u> ihm drei Tage Bettruhe.', o: ['verordnete', 'bereitete', 'erstellte', 'unternahm'], a: 0 },
+  { q: 'Was ist falsch? <i>Ich habe ihm gestern im Bus gesehen.</i>', o: ['«sehen» verlangt den Akkusativ: ihn', 'Die Zeitform ist falsch', '«im» müsste «in dem» heissen', 'Der Satz ist korrekt'], a: 0 },
+  { q: 'Was ist falsch? <i>Sie ist grösser wie ihre Schwester.</i>', o: ['Beim Komparativ vergleicht man mit «als»', '«grösser» schreibt man mit ß', 'Es fehlt ein Komma', 'Der Satz ist korrekt'], a: 0 },
+  { q: 'Was ist falsch? <i>Der Hund biss den Briefträger, der laut bellte.</i>', o: ['Der Relativsatz bezieht sich auf den Briefträger statt auf den Hund', 'Es müsste «dem Briefträger» heissen', 'Die Zeitformen passen nicht zusammen', 'Der Satz ist korrekt'], a: 0, x: 'Das Relativpronomen «der» bezieht sich auf das nächststehende passende Nomen. So bellt der Briefträger.' },
+  { q: 'Was ist falsch? <i>Wir haben trotz des Regens trotzdem gespielt.</i>', o: ['«trotz» und «trotzdem» sagen zweimal dasselbe', '«trotz» verlangt den Dativ', 'Es fehlt ein Komma nach Regens', 'Der Satz ist korrekt'], a: 0 },
+  { q: 'Was ist falsch? <i>Eine ältere Dame sucht ihre Brille, die einen Hut trägt.</i>', o: ['Der Relativsatz bezieht sich falsch auf die Brille', '«ältere» müsste «alte» heissen', 'Es müsste «ihrer Brille» heissen', 'Der Satz ist korrekt'], a: 0 },
+  { q: 'Was ist falsch? <i>Mein Bruder verdient als Lehrling 900 Franken Belohnung im Monat.</i>', o: ['«Belohnung» ist das falsche Wort, gemeint ist «Lohn»', '«verdient» müsste «verdiente» heissen', '«als» müsste «wie» heissen', 'Der Satz ist korrekt'], a: 0, x: 'Eine Belohnung gibt es einmalig für eine besondere Tat. Für Arbeit bekommt man Lohn.' }
+  ]},
+
+{ id: 'pein', cat: 'wa', name: 'Pronomen einsetzen', exam: 'AP23, AP24', kind: 'input', norm: 'word',
+  instr: 'Setze das passende Pronomen (meist ein Relativpronomen) in die Lücke.',
+  tip: 'dessen (männlich/sächlich) und deren (weiblich/Plural) zeigen Besitz. Bezieht sich der Relativsatz auf den ganzen Satz davor, heisst es «was».',
+  items: [
+  { q: 'Der Spieler, ___ Schuhe zu klein sind, humpelt vom Feld.', a: ['dessen'] },
+  { q: 'Die Lehrerin, ___ Klasse gewonnen hat, strahlt.', a: ['deren'] },
+  { q: 'Er kam schon wieder zu spät, ___ alle ärgerte.', a: ['was'] },
+  { q: 'Das ist das Mädchen, ___ ich mein Buch geliehen habe.', a: ['dem', 'welchem'] },
+  { q: 'Die Freunde, mit ___ ich verreise, holen mich ab.', a: ['denen', 'welchen'] },
+  { q: 'Alles, ___ du sagst, stimmt.', a: ['was'] },
+  { q: 'Das Haus, ___ Dach undicht ist, wird renoviert.', a: ['dessen'] },
+  { q: 'Die Kinder, ___ Eltern lange arbeiten, essen in der Schule.', a: ['deren'] },
+  { q: 'Der Mann, ___ ich geholfen habe, bedankte sich.', a: ['dem', 'welchem'] },
+  { q: 'Sie hat die Prüfung bestanden, ___ mich sehr freut.', a: ['was'] },
+  { q: 'Das Beste, ___ ich je gegessen habe, war Mamas Rösti.', a: ['was'] },
+  { q: 'Die Stadt, in ___ ich aufgewachsen bin, liegt am See.', a: ['der', 'welcher'] }
+  ]},
+
+// ---------------- VERBEN ----------------
+{ id: 'zeit', cat: 'verb', name: 'Zeitformen', exam: 'jede Prüfung', kind: 'input', norm: 'sentence', override: true,
+  instr: 'Setze den Satz in die verlangte Zeitform. Schreibe den ganzen Satz.',
+  tip: 'Mit Modalverben (müssen, können, wollen …) steht im Perfekt der Infinitiv: «Er hat warten müssen», nicht «gemusst». Futur = werden + Infinitiv.',
+  items: [
+  { q: 'Sie öffnet das Fenster.', t: 'Perfekt', a: ['Sie hat das Fenster geöffnet.'] },
+  { q: 'Wir fahren nach Zürich.', t: 'Perfekt', a: ['Wir sind nach Zürich gefahren.'] },
+  { q: 'Er muss lange warten.', t: 'Perfekt', a: ['Er hat lange warten müssen.'], x: 'Modalverb im Perfekt: Infinitiv statt Partizip (Ersatzinfinitiv).' },
+  { q: 'Ich will das nicht hören.', t: 'Präteritum', a: ['Ich wollte das nicht hören.'] },
+  { q: 'Du kannst gut schwimmen.', t: 'Plusquamperfekt', a: ['Du hattest gut schwimmen können.'] },
+  { q: 'Der Zug kommt pünktlich an.', t: 'Präteritum', a: ['Der Zug kam pünktlich an.'] },
+  { q: 'Sie vergisst ihren Schlüssel.', t: 'Plusquamperfekt', a: ['Sie hatte ihren Schlüssel vergessen.'] },
+  { q: 'Ich sitze am Fenster.', t: 'Perfekt', a: ['Ich habe am Fenster gesessen.', 'Ich bin am Fenster gesessen.'], x: 'In der Schweiz ist «bin gesessen» korrekt, in Deutschland «habe gesessen».' },
+  { q: 'Wir dürfen länger bleiben.', t: 'Futur', a: ['Wir werden länger bleiben dürfen.'] },
+  { q: 'Er rennt zum Bus.', t: 'Perfekt', a: ['Er ist zum Bus gerannt.'] },
+  { q: 'Das Licht erlischt.', t: 'Präteritum', a: ['Das Licht erlosch.'] },
+  { q: 'Sie wird das Rätsel lösen.', t: 'Perfekt', a: ['Sie hat das Rätsel gelöst.'] },
+  { q: 'Ich lasse mein Velo reparieren.', t: 'Perfekt', a: ['Ich habe mein Velo reparieren lassen.'], x: '«lassen» verhält sich wie ein Modalverb: «reparieren lassen», nicht «gelassen».' },
+  { q: 'Er hat den Text übersetzt.', t: 'Präsens', a: ['Er übersetzt den Text.'] },
+  { q: 'Die Kinder sangen laut.', t: 'Futur', a: ['Die Kinder werden laut singen.'] },
+  { q: 'Wir haben uns beeilen müssen.', t: 'Präteritum', a: ['Wir mussten uns beeilen.'] },
+  { q: 'Er bringt den Abfall hinaus.', t: 'Präteritum', a: ['Er brachte den Abfall hinaus.'] },
+  { q: 'Das Eis schmilzt.', t: 'Perfekt', a: ['Das Eis ist geschmolzen.'] },
+  { q: 'Sie empfiehlt mir ein Buch.', t: 'Präteritum', a: ['Sie empfahl mir ein Buch.'] },
+  { q: 'Ich sehe ihn kommen.', t: 'Perfekt', a: ['Ich habe ihn kommen sehen.', 'Ich habe ihn kommen gesehen.'] },
+  { q: 'Er wollte den Brief lesen.', t: 'Futur', a: ['Er wird den Brief lesen wollen.'] },
+  { q: 'Das ist ein Fehler.', t: 'Plusquamperfekt', a: ['Das war ein Fehler gewesen.'] },
+  { q: 'Ich wuchs in Weinfelden auf.', t: 'Plusquamperfekt', a: ['Ich war in Weinfelden aufgewachsen.'] },
+  { q: 'Sie werden sich wundern.', t: 'Perfekt', a: ['Sie haben sich gewundert.'] },
+  { q: 'Wir müssen oft an euch denken.', t: 'Perfekt', a: ['Wir haben oft an euch denken müssen.'] }
+  ]},
+
+{ id: 'konj', cat: 'verb', name: 'Konjugation', exam: 'AP26', kind: 'input', norm: 'verb',
+  instr: 'Setze das Verb in die verlangte Form.',
+  tip: 'Starke Verben ändern oft den Stammvokal: e → i (du nimmst), a → ä (du hältst). Im Präteritum gibt es keine Endung bei der 3. Person: er nahm.',
+  items: [
+  { q: 'lesen', t: 'Präsens, 2. Person Singular (du)', a: ['liest'] },
+  { q: 'lesen', t: 'Präteritum, 3. Person Singular (er)', a: ['las'] },
+  { q: 'nehmen', t: 'Präsens, 2. Person Singular (du)', a: ['nimmst'] },
+  { q: 'nehmen', t: 'Präteritum, 3. Person Singular (er)', a: ['nahm'] },
+  { q: 'treten', t: 'Präsens, 2. Person Singular (du)', a: ['trittst'] },
+  { q: 'treten', t: 'Präteritum, 3. Person Singular (er)', a: ['trat'] },
+  { q: 'laden', t: 'Präsens, 2. Person Singular (du)', a: ['lädst'] },
+  { q: 'laden', t: 'Präteritum, 3. Person Singular (er)', a: ['lud'] },
+  { q: 'raten', t: 'Präsens, 2. Person Singular (du)', a: ['rätst'] },
+  { q: 'raten', t: 'Präteritum, 3. Person Singular (er)', a: ['riet'] },
+  { q: 'messen', t: 'Präsens, 2. Person Singular (du)', a: ['misst'] },
+  { q: 'messen', t: 'Präteritum, 3. Person Singular (er)', a: ['mass'] },
+  { q: 'erschrecken (= Angst bekommen)', t: 'Präsens, 2. Person Singular (du)', a: ['erschrickst'] },
+  { q: 'erschrecken (= Angst bekommen)', t: 'Präteritum, 3. Person Singular (er)', a: ['erschrak'] },
+  { q: 'gelten', t: 'Präsens, 2. Person Singular (du)', a: ['giltst'] },
+  { q: 'gelten', t: 'Präteritum, 3. Person Singular (es)', a: ['galt'] },
+  { q: 'stossen', t: 'Präsens, 2. Person Singular (du)', a: ['stösst'] },
+  { q: 'stossen', t: 'Präteritum, 3. Person Singular (er)', a: ['stiess'] },
+  { q: 'empfehlen', t: 'Präsens, 2. Person Singular (du)', a: ['empfiehlst'] },
+  { q: 'empfehlen', t: 'Präteritum, 3. Person Singular (sie)', a: ['empfahl'] },
+  { q: 'halten', t: 'Präsens, 2. Person Singular (du)', a: ['hältst'] },
+  { q: 'halten', t: 'Präteritum, 3. Person Singular (er)', a: ['hielt'] },
+  { q: 'braten', t: 'Präsens, 2. Person Singular (du)', a: ['brätst'] },
+  { q: 'braten', t: 'Präteritum, 3. Person Singular (er)', a: ['briet'] },
+  { q: 'werfen', t: 'Präsens, 2. Person Singular (du)', a: ['wirfst'] },
+  { q: 'werfen', t: 'Präteritum, 3. Person Singular (er)', a: ['warf'] },
+  { q: 'bitten', t: 'Präsens, 2. Person Singular (du)', a: ['bittest'] },
+  { q: 'bitten', t: 'Präteritum, 3. Person Singular (er)', a: ['bat'] },
+  { q: 'senden', t: 'Präteritum, 3. Person Singular (er)', a: ['sandte', 'sendete'] },
+  { q: 'gleiten', t: 'Präteritum, 3. Person Singular (er)', a: ['glitt'] },
+  { q: 'versprechen', t: 'Präsens, 2. Person Singular (du)', a: ['versprichst'] },
+  { q: 'vergessen', t: 'Präteritum, 3. Person Singular (sie)', a: ['vergass'] },
+  { q: 'befehlen', t: 'Präsens, 2. Person Singular (du)', a: ['befiehlst'] },
+  { q: 'schmelzen', t: 'Präteritum, 3. Person Singular (es)', a: ['schmolz'] }
+  ]},
+
+{ id: 'ap', cat: 'verb', name: 'Aktiv oder Passiv', exam: 'jede Prüfung', kind: 'mc', fixed: true, opts: ['Aktiv (A)', 'Passiv (P)'],
+  instr: 'Steht der Satz im Aktiv oder im Passiv?',
+  tip: 'Passiv = werden + <b>Partizip II</b> (wird geöffnet, wurde gelobt, ist gelöst worden). «werden» allein (Sie wird Ärztin) oder mit Infinitiv (Futur: Er wird kommen) ist Aktiv.',
+  items: [
+  { q: 'Das Fenster wurde geöffnet.', a: 1 },
+  { q: 'Er wurde plötzlich wütend.', a: 0, x: '«wütend» ist ein Adjektiv, kein Partizip II. «werden» ist hier Vollverb.' },
+  { q: 'Sie wird bald achtzehn.', a: 0 },
+  { q: 'Der Brief wird morgen verschickt.', a: 1 },
+  { q: 'Wir werden morgen verreisen.', a: 0, x: 'werden + Infinitiv = Futur, Aktiv.' },
+  { q: 'Das Problem ist gelöst worden.', a: 1, x: 'Perfekt Passiv: ist + Partizip II + worden.' },
+  { q: 'Die Brücke wird gerade renoviert.', a: 1 },
+  { q: 'Was ist aus ihm geworden?', a: 0, x: '«geworden» (nicht «worden») zeigt: werden ist hier Vollverb.' },
+  { q: 'Er wird von allen bewundert.', a: 1 },
+  { q: 'Die Tür war abgeschlossen worden.', a: 1 },
+  { q: 'Das Kind wurde immer müder.', a: 0 },
+  { q: 'Morgen wird gefeiert.', a: 1, x: 'Unpersönliches Passiv: wird + Partizip II, aber ohne Subjekt.' },
+  { q: 'Sie wird das Spiel bestimmt gewinnen.', a: 0 },
+  { q: 'Die Aufgabe muss bis morgen erledigt werden.', a: 1 },
+  { q: 'Das Wetter wird besser.', a: 0 },
+  { q: 'Hier wird nicht geraucht.', a: 1 },
+  { q: 'Ich werde Tierärztin.', a: 0 },
+  { q: 'Der Pokal wurde der Kapitänin überreicht.', a: 1 },
+  { q: 'Die Fans werden laut jubeln.', a: 0 },
+  { q: 'Der Täter konnte schnell gefasst werden.', a: 1 }
+  ]},
+
+{ id: 'hilf', cat: 'verb', name: 'Hilfsverben finden', exam: 'AP24, AP25', kind: 'mark',
+  instr: 'Tippe alle Hilfsverben an. Falsch markierte Wörter geben Abzug.',
+  tip: 'Hilfsverben sind sein, haben, werden, aber nur wenn sie mit einem anderen Verb eine Zeitform oder das Passiv bilden. Modalverben (wollen, müssen …) zählen nicht. «Sie ist müde» oder «Er hat Hunger»: hier sind sein und haben Vollverben.',
+  items: [
+  { t: 'Wir [haben] lange gewartet, doch der Bus kam nicht.' },
+  { t: 'Sie ist sehr müde, weil sie früh aufgestanden [ist].', x: 'Das erste «ist» ist Vollverb (ist müde), das zweite bildet das Perfekt.' },
+  { t: 'Er hat einen Hund und [wird] ihn morgen zum Tierarzt bringen.' },
+  { t: 'Das Paket [wurde] gestern geliefert.' },
+  { t: 'Sie wird Ärztin, so wie sie es sich immer gewünscht [hat].', x: '«wird Ärztin»: werden als Vollverb.' },
+  { t: 'Ich wollte schwimmen gehen, aber es [hatte] zu regnen begonnen.' },
+  { t: 'Wir [waren] gerade angekommen, als das Gewitter losbrach.' },
+  { t: 'Der Hund hat Hunger, deshalb [hat] er laut gebellt.' },
+  { t: 'Das [ist] bereits entschieden [worden].', x: '«worden» ist eine Form von «werden» und gehört zum Passiv.' },
+  { t: 'Sie [werden] das Spiel gewinnen, denn sie sind in Form.' },
+  { t: 'Du musst das nicht tun, wenn du keine Lust hast.', x: 'Kein Hilfsverb: «musst» ist ein Modalverb, «hast» ein Vollverb.' },
+  { t: 'Kaum [hatte] sie das Licht gelöscht, wurde es draussen laut.', x: '«wurde laut»: werden ist hier Vollverb (mit Adjektiv), kein Hilfsverb.' }
+  ]},
+
+{ id: 'inf', cat: 'verb', name: 'Infinitive finden', exam: 'AP24, AP25', kind: 'mark',
+  instr: 'Tippe alle Infinitive an. Falsch markierte Wörter geben Abzug.',
+  tip: 'Ein Infinitiv ist die Grundform, die nicht konjugiert ist (gehen, zu bringen). «Wir laufen» ist eine Personalform, auch wenn sie gleich aussieht. «Das Lesen» ist ein Nomen.',
+  items: [
+  { t: 'Wir laufen jeden Tag, um fit zu [bleiben].', x: '«laufen» ist hier Personalform (wir laufen).' },
+  { t: 'Das Lesen macht ihr Spass, deshalb will sie mehr Bücher [kaufen].', x: '«Das Lesen» ist ein Nomen.' },
+  { t: 'Sie hören Musik und vergessen dabei, die Hausaufgaben zu [erledigen].' },
+  { t: 'Er muss heute länger [arbeiten], weil seine Kollegen fehlen.' },
+  { t: 'Ihr solltet nicht so viel [reden], sondern besser [zuhören].' },
+  { t: 'Beim Schwimmen lernen die Kinder, sich über Wasser zu [halten].', x: '«lernen» ist Personalform (die Kinder lernen), «Schwimmen» ein Nomen.' },
+  { t: 'Wir werden morgen [abreisen] und dürfen nichts [vergessen].' },
+  { t: 'Sie liess ihr Velo [reparieren] und ging [einkaufen].' },
+  { t: 'Glaubt ihr wirklich, dass wir es nicht [schaffen] können?', x: '«schaffen» ist Infinitiv (zu «können»), «Glaubt» Personalform.' },
+  { t: 'Die Spielerinnen wollen heute unbedingt [gewinnen].' }
+  ]},
+
+{ id: 'pers', cat: 'verb', name: 'Personalformen finden', exam: 'AP23, AP26', kind: 'mark',
+  instr: 'Tippe alle Personalformen (konjugierte Verben) an.',
+  tip: 'Die Personalform verändert sich, wenn du die Person änderst (ich gehe / du gehst). Infinitive und Partizipien (gegangen) sind keine Personalformen.',
+  items: [
+  { t: '[Kannst] du mir sagen, wann der Zug [fährt]?' },
+  { t: 'Wir [haben] lange gewartet, aber niemand [ist] gekommen.' },
+  { t: 'Sie [möchte] ins Kino gehen, doch ihr Bruder [will] lieber zuhause bleiben.' },
+  { t: 'Als es zu regnen [begann], [rannten] die Kinder ins Haus.' },
+  { t: 'Der Lehrer [wird] die Prüfungen morgen zurückgeben.' },
+  { t: '[Versucht] ruhig zu bleiben, wenn ihr [streitet].' },
+  { t: 'Das Buch, das du mir geliehen [hast], [gefällt] mir sehr.' },
+  { t: 'Ihr [solltet] früher aufstehen, dann [verpasst] ihr den Bus nicht.' },
+  { t: 'Heute [wollen] die Fans eine tolle Leistung sehen.' }
+  ]},
+
+// ---------------- WORTARTEN ----------------
+{ id: 'wa', cat: 'wa', name: 'Wortarten bestimmen', exam: 'AP22, AP24, AP25', kind: 'mc', fixed: true, opts: WA_OPTS,
+  instr: 'Bestimme die Wortart des unterstrichenen Wortes.',
+  tip: 'Schweizer Schulgrammatik: 5 Wortarten (Verb, Nomen, Adjektiv, Pronomen, Partikel). Bei den Partikeln nennst du die Untergruppe: Präposition, Konjunktion oder Adverb. Artikel zählen zu den Pronomen. Ein Adjektiv bleibt Adjektiv, auch wenn es beim Verb steht (Sie lief schnell).',
+  items: [
+  { q: 'Sie lief <u>schnell</u> nach Hause.', a: 2, x: 'Adjektiv: steigerbar (schneller), auch wenn es beim Verb steht.' },
+  { q: '<u>Gestern</u> war ich krank.', a: 6 },
+  { q: 'Das <u>Lesen</u> fällt ihm schwer.', a: 0, x: 'Nominalisiertes Verb: mit Artikel, also Nomen.' },
+  { q: '<u>Während</u> sie schlief, regnete es.', a: 5, x: 'Leitet einen Nebensatz ein, also Konjunktion.' },
+  { q: '<u>Während</u> der Pause regnete es.', a: 4, x: 'Steht vor einem Nomen und bestimmt den Fall (Genitiv), also Präposition.' },
+  { q: 'Er hat <u>nichts</u> gesagt.', a: 3, x: 'Indefinitpronomen' },
+  { q: 'Ich habe <u>kein</u> Geld dabei.', a: 3, x: 'Indefinitpronomen (Begleiter)' },
+  { q: 'Sie ist <u>leider</u> nicht gekommen.', a: 6 },
+  { q: '<u>Dein</u> Velo steht draussen.', a: 3, x: 'Possessivpronomen' },
+  { q: 'Ich warte, <u>bis</u> du kommst.', a: 5 },
+  { q: 'Ich warte <u>bis</u> morgen.', a: 4 },
+  { q: 'Er <u>wird</u> Lehrer.', a: 1 },
+  { q: 'Sie kam <u>trotzdem</u>.', a: 6 },
+  { q: 'Das ist ein <u>schönes</u> Bild.', a: 2 },
+  { q: 'Wir sahen <u>ein</u> Reh am Waldrand.', a: 3, x: 'Artikel gehören in der Schweizer Schulgrammatik zu den Pronomen.' },
+  { q: 'Sie fragte, <u>ob</u> ich mitkomme.', a: 5 },
+  { q: 'Der Mann, <u>der</u> dort steht, ist mein Onkel.', a: 3, x: 'Relativpronomen' },
+  { q: 'Ich freue mich <u>darauf</u>.', a: 6 },
+  { q: 'Das Essen war <u>sehr</u> gut.', a: 6 },
+  { q: '<u>Beim</u> Essen redet man nicht.', a: 4, x: '«beim» = bei + dem, eine Präposition.' },
+  { q: '<u>Und</u> dann ging das Licht aus.', a: 5 },
+  { q: '<u>Interessiert</u> hörte sie zu.', a: 2, x: 'Adjektiv (Partizip, das wie ein Adjektiv gebraucht wird).' },
+  { q: 'Für <u>solche</u> Gäste ist nur das Beste gut genug.', a: 3, x: 'Demonstrativpronomen' },
+  { q: '<u>Alle</u> haben gelacht.', a: 3, x: 'Indefinitpronomen' },
+  { q: 'Sie schaute <u>hinaus</u>.', a: 6 }
+  ]},
+
+{ id: 'praep', cat: 'wa', name: 'Präpositionen finden', exam: 'jede Prüfung', kind: 'mark',
+  instr: 'Tippe alle Präpositionen an. Falsch markierte Wörter geben Abzug.',
+  tip: 'Eine Präposition steht vor einem Nomen oder Pronomen und bestimmt dessen Fall. Fallen: Verbzusätze am Satzende (er rief <i>an</i>), «zu» vor dem Infinitiv, und Konjunktionen wie «während», «bis», «seit», wenn sie einen Nebensatz einleiten. «zum», «beim», «im» sind Präpositionen.',
+  items: [
+  { t: '[Nach] dem Training gingen wir [in] die Stadt.' },
+  { t: 'Sie rief ihre Freundin an und erzählte [von] dem Spiel.', x: '«an» ist Verbzusatz (anrufen).' },
+  { t: 'Während er schlief, schlich die Katze [durch] das Zimmer.', x: '«Während» leitet hier einen Nebensatz ein: Konjunktion.' },
+  { t: '[Während] des Konzerts war es [im] Saal ganz still.' },
+  { t: 'Er hatte keine Lust aufzuräumen und ging lieber [zum] See.' },
+  { t: 'Seit sie umgezogen ist, sehen wir uns nur noch [an] den Wochenenden.', x: '«Seit» leitet hier einen Nebensatz ein: Konjunktion.' },
+  { t: '[Seit] drei Jahren spielt sie [in] einem Verein.' },
+  { t: 'Er stieg [aus] dem Bus aus und lief [über] die Strasse.', x: 'Das zweite «aus» ist Verbzusatz (aussteigen).' },
+  { t: '[Trotz] der Kälte trug er nur ein T-Shirt.' },
+  { t: 'Die Lehrerin teilte uns mit, dass die Prüfung [wegen] des Feiertags verschoben wird.', x: '«mit» ist Verbzusatz (mitteilen).' },
+  { t: 'Wir warteten [bis] Mitternacht, bis endlich das Feuerwerk begann.', x: 'Das erste «bis» steht vor einem Nomen (Präposition), das zweite leitet einen Nebensatz ein (Konjunktion).' },
+  { t: 'Er versuchte, [mit] seinem Bruder [über] den Streit zu reden.', x: '«zu» vor dem Infinitiv ist keine Präposition.' },
+  { t: '[Ausser] meiner Schwester kamen alle zu spät.', x: '«zu spät»: «zu» ist hier Partikel (Adverb), keine Präposition.' },
+  { t: 'Sie legte das Buch [auf] den Tisch und machte das Licht aus.' }
+  ]},
+
+{ id: 'konjf', cat: 'wa', name: 'Konjunktionen finden', exam: 'AP26', kind: 'mark',
+  instr: 'Tippe alle Konjunktionen an. Falsch markierte Wörter geben Abzug.',
+  tip: 'Konjunktionen verbinden Wörter, Satzglieder oder Sätze: und, oder, aber, denn, sondern, weil, dass, ob, als, wenn, obwohl, nachdem, während, bis, damit … Steht «während», «seit» oder «bis» vor einem Nomen, ist es eine Präposition.',
+  items: [
+  { t: 'Ich wäre gerne mitgekommen, [aber] ich hatte keine Zeit.' },
+  { t: '[Weil] es regnete, blieben wir zuhause [und] spielten Karten.' },
+  { t: 'Er fragte, [ob] wir morgen Zeit hätten.' },
+  { t: 'Während des Essens sprach niemand, [denn] alle waren müde.', x: '«Während des Essens»: Präposition.' },
+  { t: 'Sie wusste, [dass] er nicht lügen würde.' },
+  { t: 'Willst du Tee [oder] Kaffee?' },
+  { t: '[Nachdem] sie gegessen hatten, gingen sie spazieren.' },
+  { t: 'Er rannte, [damit] er den Bus nicht verpasste.' },
+  { t: 'Das ist nicht mein Velo, [sondern] das meines Bruders.' },
+  { t: '[Obwohl] sie müde war, las sie das Buch fertig.' },
+  { t: '[Als] wir ankamen, war das Konzert schon vorbei.' },
+  { t: 'Seit dem Unfall fährt er vorsichtiger, [weil] er Angst hat.', x: '«Seit dem Unfall»: Präposition.' },
+  { t: '[Während] die Eltern kochten, deckten die Kinder den Tisch.' }
+  ]},
+
+{ id: 'pron', cat: 'wa', name: 'Pronomen finden', exam: 'AP23, AP26', kind: 'mark',
+  instr: 'Tippe alle Pronomen an. Achtung: Artikel zählen auch dazu.',
+  tip: 'Zu den Pronomen gehören: Personal- (ich, ihn, sich), Possessiv- (mein, ihr), Demonstrativ- (dieser, das), Relativ- (der, was), Interrogativ- (wer, wessen) und Indefinitpronomen (man, nichts, alle, etwas, kein). Auch die Artikel (der, die, das, ein) sind Pronomen. Verschmolzene Formen wie «im» oder «zum» sind Präpositionen.',
+  items: [
+  { t: '[Er] hat [mir] [das] Buch geliehen, [das] [ich] gesucht habe.' },
+  { t: '[Niemand] wusste, [was] [man] tun sollte.' },
+  { t: '[Diese] Jacke gehört [meinem] Bruder, [der] [sie] gestern vergessen hat.' },
+  { t: '[Wir] haben [etwas] Spannendes erlebt.', x: '«Spannendes» ist ein Nomen (etwas Spannendes).' },
+  { t: 'Kannst [du] [mir] sagen, [wessen] Velo [das] ist?' },
+  { t: '[Alle] lachten, nur [ein] Junge blieb ernst.' },
+  { t: '[Sie] freut [sich] über [ihr] neues Handy.' },
+  { t: '[Jemand] hat [seine] Tasche im Zug liegen lassen.', x: '«im» = in + dem, zählt als Präposition.' },
+  { t: '[Nichts] ist so schön wie [ein] Abend am See.', x: '«am» = an + dem, Präposition.' }
+  ]},
+
+{ id: 'fall', cat: 'wa', name: 'Präpositionen einsetzen', exam: 'AP25, AP26', kind: 'input', norm: 'phrase',
+  instr: 'Setze die passende Präposition ein oder setze den Ausdruck in Klammern in den richtigen Fall.',
+  tip: 'Genitiv verlangen u. a.: wegen, trotz, während, innerhalb, ausserhalb, unweit, statt. Dativ: mit, nach, bei, seit, von, zu, aus, gegenüber.',
+  items: [
+  { q: 'Sie interessiert sich ___ Geschichte.', a: ['für'] },
+  { q: 'Er ärgert sich ___ den Lärm.', a: ['über'] },
+  { q: 'Wir warten schon lange ___ den Bus.', a: ['auf'] },
+  { q: 'Ich bin stolz ___ meine Leistung.', a: ['auf'] },
+  { q: 'Er leidet ___ Heuschnupfen.', a: ['an', 'unter'] },
+  { q: 'Sie träumt ___ einer Reise nach Japan.', a: ['von'] },
+  { q: 'Das hängt ___ dem Wetter ab.', a: ['von'] },
+  { q: 'Er hat Angst ___ Spinnen.', a: ['vor'] },
+  { q: 'Sie bat ihn ___ Hilfe.', a: ['um'] },
+  { q: 'Erinnerst du dich ___ unseren Ausflug?', a: ['an'] },
+  { q: 'Wir wundern uns ___ sein Verhalten.', a: ['über'] },
+  { q: 'Jeder hat Anspruch ___ eine faire Behandlung.', a: ['auf'] },
+  { q: 'Sie wohnt ausserhalb ___ (die Stadt).', a: ['der Stadt'] },
+  { q: 'Trotz ___ (der starke Regen) spielten wir weiter.', a: ['des starken Regens', 'dem starken Regen'], x: 'Standard ist der Genitiv; in der Schweiz wird auch der Dativ akzeptiert.' },
+  { q: 'Wir sassen gegenüber ___ (der Bahnhof).', a: ['dem Bahnhof'] },
+  { q: 'Wegen ___ (ein technisches Problem) fiel der Zug aus.', a: ['eines technischen Problems'] },
+  { q: 'Innerhalb ___ (eine Woche) musst du dich melden.', a: ['einer Woche'] },
+  { q: 'Statt ___ (ein Brief) schrieb sie eine Nachricht.', a: ['eines Briefes', 'eines Briefs'] },
+  { q: 'Während ___ (die lange Fahrt) schlief ich.', a: ['der langen Fahrt'] },
+  { q: 'Unweit ___ (unser Haus) liegt ein kleiner See.', a: ['unseres Hauses'] },
+  { q: 'Mit ___ (mein bester Freund) gehe ich ins Kino.', a: ['meinem besten Freund'] },
+  { q: 'Sie bewegt sich nur innerhalb ___ (ihr eigener Freundeskreis).', a: ['ihres eigenen Freundeskreises'] }
+  ]},
+
+// ---------------- SATZLEHRE ----------------
+{ id: 'sgt', cat: 'satz', name: 'Satzglieder trennen', exam: 'jede Prüfung', kind: 'split',
+  instr: 'Trenne die Satzglieder: Tippe auf die Lücke zwischen zwei Wörtern, um einen Strich zu setzen.',
+  tip: 'Verschiebeprobe: Was du gemeinsam an den Satzanfang verschieben kannst, ist ein Satzglied. Jeder Verbteil (Personalform, Infinitiv, Partizip, Verbzusatz) ist ein eigenes Satzglied. Beifügungen (der Brief <i>meines Vaters</i>) bleiben beim Nomen.',
+  items: [
+  { t: 'Am Samstag / spielt / unsere Mannschaft / gegen den Tabellenführer aus Frauenfeld.' },
+  { t: 'Die Schülerinnen der dritten Sek / besuchten / letzte Woche / mit ihrer Lehrerin / das Museum für Naturkunde.' },
+  { t: 'Nach dem langen Training / schenkte / der Trainer / jedem Spieler / ein kühles Getränk.' },
+  { t: 'Meine Grossmutter / hat / mir / gestern / einen langen Brief / geschrieben.' },
+  { t: 'Der neue Nachbar mit dem roten Velo / grüsst / uns / jeden Morgen / freundlich.' },
+  { t: 'Ohne ein Wort / verliess / die Frau im grauen Mantel / das Zimmer.' },
+  { t: 'Am Ende des Spiels / überreichte / die Präsidentin des Vereins / den Spielerinnen / die Medaillen.' },
+  { t: 'Er / rief / seine Freundin / sofort / an.' },
+  { t: 'Seit drei Wochen / wartet / mein Bruder / auf eine Antwort der Firma.' },
+  { t: 'Die Lehrerin / hatte / den Schülern / die Aufgabe / zweimal / erklärt.' },
+  { t: 'Wegen des starken Schneefalls / kam / der Zug aus St. Gallen / mit grosser Verspätung / an.' }
+  ]},
+
+{ id: 'sgb', cat: 'satz', name: 'Satzglieder bestimmen', exam: 'jede Prüfung', kind: 'mc', fixed: true, opts: SG_OPTS,
+  instr: 'Bestimme das unterstrichene Satzglied.',
+  tip: 'Frageprobe: Wer oder was? → Subjekt. Wen oder was? → Akkusativobjekt. Wem? → Dativobjekt. Wessen? → Genitivobjekt. Beginnt das Satzglied mit einer Präposition → Präpositionalgruppe. In der Prüfung zählen auch «Nominalgruppe im Akkusativ» usw.',
+  items: [
+  { q: '<u>Der alte Hund</u> schlief vor dem Kamin.', a: 0 },
+  { q: 'Der alte Hund schlief <u>vor dem Kamin</u>.', a: 4 },
+  { q: 'Ich schenke <u>meiner Schwester</u> ein Buch.', a: 2 },
+  { q: 'Ich schenke meiner Schwester <u>ein Buch</u>.', a: 1 },
+  { q: 'Wir gedachten <u>der Opfer</u>.', a: 3 },
+  { q: '<u>Den Schlüssel</u> hat er verloren.', a: 1, x: 'Steht am Satzanfang, ist aber nicht Subjekt: Wen oder was hat er verloren?' },
+  { q: '<u>Dem Trainer</u> gefiel das Spiel nicht.', a: 2 },
+  { q: 'Dem Trainer gefiel <u>das Spiel</u> nicht.', a: 0, x: 'Wer oder was gefiel? Das Spiel.' },
+  { q: 'Gestern wurde <u>der Dieb</u> verhaftet.', a: 0, x: 'Im Passiv ist der Betroffene das Subjekt.' },
+  { q: 'Sie bedurfte <u>keiner Hilfe</u>.', a: 3 },
+  { q: 'Er wartete <u>auf den Bus</u>.', a: 4 },
+  { q: 'Das Paket wurde <u>dem Nachbarn</u> übergeben.', a: 2 },
+  { q: 'Sie hat <u>ihn</u> nicht erkannt.', a: 1 },
+  { q: 'Er rühmte sich <u>seiner Erfolge</u>.', a: 3 },
+  { q: '<u>Wegen des Regens</u> fiel das Spiel aus.', a: 4 },
+  { q: 'Jeden Morgen trinkt <u>mein Vater</u> einen Kaffee.', a: 0 },
+  { q: 'Die Lehrerin erklärt <u>den Schülern</u> die Aufgabe.', a: 2 },
+  { q: 'Wir sind <u>des Wartens</u> müde.', a: 3 },
+  { q: 'Er ist <u>dieser Ehre</u> nicht würdig.', a: 3 },
+  { q: 'Ihre Stimme hat <u>etwas Unheimliches</u> an sich.', a: 1 },
+  { q: '<u>Mit zitternden Händen</u> öffnete sie den Brief.', a: 4 }
+  ]},
+
+{ id: 'umf', cat: 'satz', name: 'Satzbau umformen', exam: 'AP23, AP24, AP26', kind: 'input', norm: 'sentence', override: true,
+  instr: 'Forme den einfachen Satz in einen zusammengesetzten Satz um: Ersetze die Präposition durch eine passende Konjunktion. Achte auf Zeitform und Komma.',
+  tip: 'Nach → nachdem (Vorzeitigkeit: Plusquamperfekt im Nebensatz, wenn der Hauptsatz im Präteritum steht). Trotz → obwohl. Wegen → weil. Bei → wenn/als/während. Vor → bevor.',
+  items: [
+  { q: 'Wegen des Regens blieben wir zuhause.', a: ['Weil es regnete, blieben wir zuhause.', 'Da es regnete, blieben wir zuhause.', 'Weil es regnete, blieben wir zu Hause.', 'Da es regnete, blieben wir zu Hause.'] },
+  { q: 'Nach dem Essen machten wir einen Spaziergang.', a: ['Nachdem wir gegessen hatten, machten wir einen Spaziergang.'], x: 'Nachdem + Plusquamperfekt, weil das Essen vor dem Spaziergang war.' },
+  { q: 'Trotz seiner Müdigkeit lernte er weiter.', a: ['Obwohl er müde war, lernte er weiter.', 'Obschon er müde war, lernte er weiter.', 'Obgleich er müde war, lernte er weiter.'] },
+  { q: 'Beim Joggen höre ich Musik.', a: ['Wenn ich jogge, höre ich Musik.', 'Während ich jogge, höre ich Musik.'] },
+  { q: 'Vor dem Konzert stimmten die Musiker ihre Instrumente.', a: ['Bevor das Konzert begann, stimmten die Musiker ihre Instrumente.', 'Ehe das Konzert begann, stimmten die Musiker ihre Instrumente.'] },
+  { q: 'Bei schönem Wetter grillieren wir.', a: ['Wenn das Wetter schön ist, grillieren wir.', 'Falls das Wetter schön ist, grillieren wir.', 'Wenn schönes Wetter ist, grillieren wir.'] },
+  { q: 'Seit seinem Umzug sehen wir ihn selten.', a: ['Seit er umgezogen ist, sehen wir ihn selten.', 'Seitdem er umgezogen ist, sehen wir ihn selten.'] },
+  { q: 'Nach der Ankunft des Zuges stiegen alle aus.', a: ['Nachdem der Zug angekommen war, stiegen alle aus.'] },
+  { q: 'Während des Gewitters fiel der Strom aus.', a: ['Während es gewitterte, fiel der Strom aus.', 'Als es gewitterte, fiel der Strom aus.'] },
+  { q: 'Trotz des Regens gingen wir wandern.', a: ['Obwohl es regnete, gingen wir wandern.', 'Obschon es regnete, gingen wir wandern.', 'Obgleich es regnete, gingen wir wandern.'] },
+  { q: 'Nach der Ankunft meiner Oma tranken wir Kaffee.', a: ['Nachdem meine Oma angekommen war, tranken wir Kaffee.', 'Als meine Oma angekommen war, tranken wir Kaffee.'] }
+  ]},
+
+// ---------------- ZEICHENSETZUNG ----------------
+{ id: 'komma', cat: 'zeichen', name: 'Kommas setzen', exam: 'AP24', kind: 'comma',
+  instr: 'Tippe auf die Lücken, an denen ein Komma fehlt.',
+  tip: 'Komma vor und nach Nebensätzen (weil, dass, als, der/die/das …), bei Aufzählungen ohne «und», bei Einschüben (Apposition) und vor «um … zu». Kein Komma vor «und»/«oder» in Aufzählungen.',
+  items: [
+  { t: 'Als wir ankamen, war das Spiel schon vorbei.' },
+  { t: 'Der Mann, der neben mir sass, schlief während des ganzen Films.' },
+  { t: 'Sie kaufte Brot, Käse, Tomaten und eine Flasche Wasser.' },
+  { t: 'Lukas, mein bester Freund, wohnt in Weinfelden.' },
+  { t: 'Ich weiss nicht, ob sie morgen kommt, weil sie krank ist.' },
+  { t: 'Er stand früh auf, um den ersten Zug zu erwischen.' },
+  { t: 'Obwohl es regnete, gingen wir spazieren, denn wir brauchten frische Luft.' },
+  { t: 'Das Buch, das du mir empfohlen hast, ist spannend, aber sehr lang.' },
+  { t: 'Wir hoffen, dass ihr bald wieder gesund seid.' },
+  { t: 'Nachdem sie die Prüfung geschrieben hatte, ging sie mit ihren Freundinnen, die schon warteten, ins Café.' },
+  { t: 'Eigentlich ein netter Kerl, dieser Hausmeister, dachte sie und lächelte.' },
+  { t: 'Während ihre Mutter telefonierte, langweilte sich Lena.' }
+  ]},
+
+{ id: 'rede', cat: 'zeichen', name: 'Direkte Rede', exam: 'AP25', kind: 'input', norm: 'strict', override: true,
+  instr: 'Schreibe den Satz korrekt: Gross-/Kleinschreibung, Anführungszeichen, Komma, Doppelpunkt, Satzzeichen. Die Wortreihenfolge bleibt gleich. Anführungszeichen kannst du als " tippen.',
+  tip: 'Redebegleitsatz vorne: Doppelpunkt. «…», sagte sie. → Komma nach dem schliessenden Anführungszeichen. Frage- und Ausrufezeichen bleiben innerhalb der Anführungszeichen, der Punkt fällt weg, wenn der Begleitsatz folgt.',
+  items: [
+  { q: 'komm sofort nach hause rief die mutter', a: ['«Komm sofort nach Hause!», rief die Mutter.', '«Komm sofort nach Hause», rief die Mutter.'] },
+  { q: 'der trainer sagte heute üben wir den aufschlag', a: ['Der Trainer sagte: «Heute üben wir den Aufschlag.»'] },
+  { q: 'hast du meine jacke gesehen fragte lea ihren bruder', a: ['«Hast du meine Jacke gesehen?», fragte Lea ihren Bruder.'] },
+  { q: 'ich glaube sagte er leise dass wir uns verlaufen haben', a: ['«Ich glaube», sagte er leise, «dass wir uns verlaufen haben.»'] },
+  { q: 'warum lachst du fragte sie mich du kennst den witz doch schon', a: ['«Warum lachst du?», fragte sie mich. «Du kennst den Witz doch schon.»', '«Warum lachst du?», fragte sie mich. «Du kennst den Witz doch schon!»'] },
+  { q: 'sie flüsterte sei bitte leise das baby schläft', a: ['Sie flüsterte: «Sei bitte leise, das Baby schläft.»', 'Sie flüsterte: «Sei bitte leise. Das Baby schläft.»', 'Sie flüsterte: «Sei bitte leise! Das Baby schläft.»', 'Sie flüsterte: «Sei bitte leise, das Baby schläft!»'] },
+  { q: 'das ist unfair rief tim wir haben doch gewonnen', a: ['«Das ist unfair!», rief Tim. «Wir haben doch gewonnen!»', '«Das ist unfair!», rief Tim. «Wir haben doch gewonnen.»'] },
+  { q: 'liebe frau meier begann ich ich möchte mich entschuldigen', a: ['«Liebe Frau Meier», begann ich, «ich möchte mich entschuldigen.»'] },
+  { q: 'sie fragte mich erstaunt ist das wirklich wahr', a: ['Sie fragte mich erstaunt: «Ist das wirklich wahr?»'] }
+  ]}
+];
+
+// ===== Leseverstehen: eigene Übungstexte im Format der Sprachprüfung =====
+const READ = [
+{ id: 'punkt', title: 'Der letzte Punkt', genre: 'Erzählung', mins: 15,
+  lines: [
+  'Mia stand an der Grundlinie und liess den Ball zweimal auf den Boden prallen.',
+  'Zweimal, nicht dreimal. Dreimal brachte Unglück, das wusste jede in der Mannschaft,',
+  'auch wenn Trainer Brunner jedes Mal die Augen verdrehte, wenn jemand davon anfing.',
+  'Es stand 24:23. Ein Punkt noch, und Kreuzlingen hätte den Satz gewonnen – und',
+  'mit ihm das Spiel und den Einzug ins Regionalfinale.',
+  'Auf der Tribüne sass ihr Vater. Er hatte sich extra freigenommen, was er sonst nie',
+  'tat, und Mia hatte es bemerkt, kaum war sie aus der Garderobe gekommen. Seither',
+  'spürte sie seinen Blick im Nacken wie eine zu warme Hand.',
+  '«Ruhig, Mia», rief Selin vom Netz her. «Einfach rüberbringen.»',
+  'Einfach rüberbringen. Als ob das je einfach gewesen wäre. Im Training gelang ihr',
+  'der Sprungaufschlag neun von zehn Mal, doch im Training sass auch niemand auf der',
+  'Tribüne, der sich extra freigenommen hatte.',
+  'Sie warf den Ball hoch. Zu weit nach vorne, das merkte sie sofort, aber da war sie',
+  'schon in der Luft. Der Ball klatschte an die Netzkante, zitterte einen Augenblick',
+  'lang auf dem weissen Band und fiel dann – wie in Zeitlupe – auf die andere Seite.',
+  'Niemand rührte sich. Die Spielerinnen aus Wil starrten auf den Ball, als hätte er',
+  'sie persönlich beleidigt.',
+  'Dann brach der Lärm los. Selin sprang Mia an, jemand zog an ihrem Pferdeschwanz,',
+  'von irgendwoher kam eine Wasserflasche geflogen. Mia liess alles geschehen. Sie',
+  'suchte die Tribüne ab.',
+  'Ihr Vater stand. Er klatschte nicht, er jubelte nicht, er stand einfach da, die',
+  'Hände in den Jackentaschen, und nickte ihr zu. Ein einziges Mal.',
+  'Später, in der Garderobe, setzte sich Brunner neben sie auf die Bank. «Glück',
+  'gehabt», sagte er.',
+  '«Ich weiss.»',
+  '«Der Wurf war miserabel.»',
+  '«Ich weiss.»',
+  'Er schwieg eine Weile. Dann klopfte er ihr auf die Schulter, so ungeschickt, dass',
+  'es beinahe wehtat. «Aber du bist gesprungen. Viele hätten in dem Moment den',
+  'sicheren Aufschlag von unten gewählt.»',
+  'Auf der Heimfahrt sprachen Mia und ihr Vater kaum. Erst als sie schon in die',
+  'Einfahrt einbogen, räusperte er sich. «Deine Mutter hätte geschrien», sagte er.',
+  '«Vor Freude, meine ich. Sie hätte die ganze Halle zusammengeschrien.»',
+  'Mia nickte. Sie wusste, dass das seine Art war, dasselbe zu sagen.'
+  ],
+  qs: [
+  { k: 'rfk', q: 'Sind die folgenden Aussagen richtig, falsch oder gibt der Text darüber keinen Hinweis?', st: [
+    { s: 'Trainer Brunner hält nichts vom Aberglauben seiner Spielerinnen.', a: 'r', x: 'Z. 3: Er verdreht die Augen, wenn jemand davon anfängt.' },
+    { s: 'Mias Eltern sind geschieden.', a: 'k', x: 'Die Mutter ist nicht da (Z. 32), aber warum, sagt der Text nicht. Eine Vermutung ist kein Hinweis im Text.' },
+    { s: 'Der entscheidende Aufschlag ist technisch gut ausgeführt.', a: 'f', x: 'Z. 13 «Zu weit nach vorne» und Z. 26 «Der Wurf war miserabel».' },
+    { s: 'Mit dem letzten Punkt gewinnt Kreuzlingen das Regionalfinale.', a: 'f', x: 'Z. 5: Mit dem Punkt schafft Kreuzlingen den Einzug ins Regionalfinale, also erst die Qualifikation.' },
+    { s: 'Selin ist Mias beste Freundin.', a: 'k', x: 'Selin ist eine Mitspielerin. Über die Freundschaft sagt der Text nichts.' }
+  ]},
+  { k: 'open', p: 2, q: 'Mia spürt den Blick ihres Vaters «wie eine zu warme Hand» (Z. 8). Was drückt dieser Vergleich aus?',
+    model: 'Eine warme Hand steht für Zuwendung: Der Vater meint es gut, er ist extra gekommen. «Zu warm» heisst aber, dass es Mia zu viel ist. Sein Blick setzt sie unter Druck und ist ihr unangenehm.',
+    crit: ['Die gute Absicht oder Nähe des Vaters wird erkannt (1 P.)', 'Der Druck oder das Unbehagen für Mia wird erkannt (1 P.)'] },
+  { k: 'rf', q: 'Welche Aussagen sind korrekt, welche nicht?', st: [
+    { s: 'Im Training gelingt Mia der Sprungaufschlag meistens.', a: 'r', x: 'Z. 10/11: neun von zehn Mal.' },
+    { s: 'Mia merkt erst, als der Ball im Netz hängt, dass ihr Wurf misslungen ist.', a: 'f', x: 'Z. 13: «das merkte sie sofort».' },
+    { s: 'Der Ball berührt das Netz, bevor er ins gegnerische Feld fällt.', a: 'r', x: 'Z. 14/15.' },
+    { s: 'Die Spielerinnen aus Wil ärgern sich über den Punkt.', a: 'r', x: 'Z. 16/17: «als hätte er sie persönlich beleidigt».' },
+    { s: 'Mia jubelt ausgelassen mit ihren Mitspielerinnen.', a: 'f', x: 'Z. 19: «Mia liess alles geschehen.» Sie sucht ihren Vater.' },
+    { s: 'Brunner lobt Mia für ihre gute Technik.', a: 'f', x: 'Er kritisiert den Wurf und lobt ihren Mut.' }
+  ]},
+  { k: 'open', p: 2, q: 'Warum sucht Mia direkt nach dem Punkt die Tribüne ab (Z. 19/20)?',
+    model: 'Sie will sehen, wie ihr Vater reagiert. Seine Anerkennung ist ihr in diesem Moment wichtiger als der Jubel der Mannschaft, denn sie hat die ganze Zeit an ihn gedacht.',
+    crit: ['Sie will die Reaktion des Vaters sehen (1 P.)', 'Seine Anerkennung ist ihr wichtiger als der Jubel / sie hat unter seinem Blick gespielt (1 P.)'] },
+  { k: 'open', p: 2, q: 'Brunner sagt zuerst «Glück gehabt» und «Der Wurf war miserabel». Wofür lobt er Mia trotzdem? Antworte genau.',
+    model: 'Er lobt ihren Mut. Sie hat im entscheidenden Moment den schwierigen Sprungaufschlag gewagt, statt den sicheren Aufschlag von unten zu wählen.',
+    crit: ['Mut / Risikobereitschaft wird genannt (1 P.)', 'Bezug auf die Wahl Sprungaufschlag statt sicherer Aufschlag von unten (1 P.)'] },
+  { k: 'mc', p: 1, q: 'Worauf bezieht sich «ihm» in Z. 5 («und mit ihm das Spiel»)?', o: ['auf den Satz', 'auf den Ball', 'auf Trainer Brunner', 'auf Mias Vater'], a: 0, x: 'Mit dem Satz gewinnt Kreuzlingen auch das Spiel.' },
+  { k: 'open', p: 2, q: 'Erkläre den letzten Satz: «Sie wusste, dass das seine Art war, dasselbe zu sagen.» (Z. 34)',
+    model: 'Der Vater zeigt seine Gefühle kaum. Wenn er sagt, die Mutter hätte vor Freude geschrien, meint er eigentlich: Ich freue mich auch und bin stolz auf dich. Mia versteht das, auch wenn er es nicht direkt sagt.',
+    crit: ['Der Vater zeigt seine Freude / seinen Stolz nur indirekt (1 P.)', '«dasselbe» = Er freut sich genauso wie die Mutter (1 P.)'] },
+  { k: 'odd', q: 'Streiche den Begriff, dessen Bedeutung dem Wort aus dem Text am wenigsten entspricht.', st: [
+    { w: 'ungeschickt (Z. 28)', o: ['unbeholfen', 'linkisch', 'plump', 'behutsam'], a: 3 },
+    { w: 'miserabel (Z. 26)', o: ['erbärmlich', 'jämmerlich', 'sehr schlecht', 'mittelmässig'], a: 3, x: 'Miserabel ist viel schlimmer als mittelmässig.' }
+  ]}
+  ]
+},
+
+{ id: 'funk', title: 'Funkloch', genre: 'Erzählung', mins: 15,
+  lines: [
+  'Das Display zeigte keinen einzigen Balken. Jonas hielt das Handy über den Kopf,',
+  'drehte sich einmal um die eigene Achse und stieg schliesslich auf die Bank vor der',
+  'Hütte. Nichts. «Kein Netz», sagte er, als hätte jemand das Gegenteil behauptet.',
+  'Sein Grossvater sass auf der Treppe und schälte einen Apfel, in einem einzigen',
+  'langen Band, wie er es immer tat. «Hier oben gibt es seit vierzig Jahren kein Netz»,',
+  'sagte er, ohne aufzuschauen. «Die Berge haben sich nicht verschoben.»',
+  'Jonas sprang von der Bank. Um sieben Uhr begann das Turnier, auf das er sich mit',
+  'Luca und Ben seit Wochen vorbereitet hatte. Online, natürlich. Ohne ihn würden die',
+  'beiden mit einem Zufallsspieler antreten müssen, und Zufallsspieler waren, das',
+  'wusste jeder, eine Katastrophe.',
+  '«Gibt es keinen Ort, wo man …»',
+  '«Doch.» Der Grossvater legte das Messer weg. «Oben beim Kreuz. Eine Stunde.',
+  'Wenn man schnell ist.»',
+  'Jonas sah auf die Uhr. Es war halb sechs. Er rechnete, verwarf die Rechnung,',
+  'rechnete noch einmal. «Kommst du mit?»',
+  'Der Grossvater betrachtete ihn lange, dann stand er auf und holte seinen Stock.',
+  'Der Weg war steiler, als Jonas gedacht hatte. Nach zwanzig Minuten brannten seine',
+  'Waden, nach dreissig redete er nicht mehr. Der Grossvater ging vor ihm, gleichmässig,',
+  'ohne Eile, und blieb nur stehen, um auf Dinge zu zeigen, die Jonas nicht interessierten:',
+  'einen Bartgeier, der hoch über dem Grat kreiste; Spuren im Schnee, die von einer',
+  'Gämse stammten; eine Hütte, in der er als Junge einen ganzen Sommer verbracht hatte.',
+  'Beim Kreuz hatte das Handy zwei Balken. Es war fünf vor sieben.',
+  'Jonas setzte sich auf einen Stein, schrieb Luca, dass er dabei sei, und wartete.',
+  'Die Sonne hing schon tief über den Gipfeln auf der anderen Seite des Tals und',
+  'färbte den Schnee rosa, dann orange, dann in ein Rot, für das Jonas kein Wort',
+  'kannte. Der Grossvater hatte sich neben ihn gesetzt und schwieg.',
+  'Um sieben Uhr vibrierte das Handy. Luca: «Turnier verschoben, Server down. Morgen',
+  'gleiche Zeit.»',
+  'Jonas starrte auf die Nachricht. Dann lachte er, zuerst leise, dann so laut, dass',
+  'das Echo von der Felswand zurückkam.',
+  '«Schlechte Nachrichten?», fragte der Grossvater.',
+  '«Nein», sagte Jonas und steckte das Handy in die Tasche. «Eigentlich nicht.»',
+  'Sie blieben sitzen, bis das letzte Rot verschwunden war. Für den Abstieg',
+  'brauchten sie doppelt so lange wie für den Aufstieg, und keiner von beiden',
+  'hatte es eilig.'
+  ],
+  qs: [
+  { k: 'rfk', q: 'Sind die folgenden Aussagen richtig, falsch oder gibt der Text darüber keinen Hinweis?', st: [
+    { s: 'Jonas verbringt seine Ferien beim Grossvater.', a: 'k', x: 'Von Ferien ist nirgends die Rede.' },
+    { s: 'Der Grossvater hat als Junge Zeit in dieser Gegend verbracht.', a: 'r', x: 'Z. 21: ein ganzer Sommer in einer Hütte.' },
+    { s: 'Luca und Ben gehen mit Jonas in die gleiche Klasse.', a: 'k', x: 'Der Text sagt nur, dass sie zusammen spielen.' },
+    { s: 'Das Turnier soll am Abend stattfinden.', a: 'r', x: 'Z. 7: Um sieben Uhr; die Sonne geht bereits unter.' },
+    { s: 'Der Grossvater besitzt selbst kein Handy.', a: 'k', x: 'Darüber erfährt man nichts.' }
+  ]},
+  { k: 'open', p: 2, q: 'Jonas sagt «Kein Netz», «als hätte jemand das Gegenteil behauptet» (Z. 3). Was zeigt diese Stelle über seine Stimmung?',
+    model: 'Er ist frustriert und gereizt. Er sagt es trotzig, fast vorwurfsvoll, obwohl ihm niemand widersprochen hat. Er sucht ein Ventil für seinen Ärger.',
+    crit: ['Stimmung benannt: frustriert / genervt / gereizt (1 P.)', 'Erklärt: Er reagiert, als müsste er sich verteidigen, obwohl niemand widerspricht (1 P.)'] },
+  { k: 'open', p: 2, q: 'Was meint der Grossvater mit dem Satz «Die Berge haben sich nicht verschoben» (Z. 6)?',
+    model: 'Er meint es ironisch: Es gibt hier kein Netz, weil die Berge den Empfang verhindern, und das ist seit Jahrzehnten so. Jonas soll sich nicht wundern und sich damit abfinden.',
+    crit: ['Die Berge sind der Grund für den fehlenden Empfang, daran ändert sich nichts (1 P.)', 'Ironie / leiser Spott: Jonas soll das hinnehmen (1 P.)'] },
+  { k: 'rf', q: 'Welche Aussagen sind korrekt, welche nicht?', st: [
+    { s: 'Der Weg zum Kreuz dauert für schnelle Wanderer etwa eine Stunde.', a: 'r', x: 'Z. 12/13.' },
+    { s: 'Jonas findet den Aufstieg anstrengend.', a: 'r', x: 'Z. 17/18: brennende Waden, er redet nicht mehr.' },
+    { s: 'Der Grossvater geht hinter Jonas, damit Jonas das Tempo bestimmt.', a: 'f', x: 'Z. 18: Der Grossvater geht vor ihm.' },
+    { s: 'Beim Aufstieg interessiert sich Jonas für den Bartgeier.', a: 'f', x: 'Z. 19: Dinge, die Jonas nicht interessierten.' },
+    { s: 'Beim Kreuz hat Jonas wieder Empfang.', a: 'r', x: 'Z. 22: zwei Balken.' },
+    { s: 'Jonas kommt zu spät beim Kreuz an.', a: 'f', x: 'Z. 22: fünf vor sieben.' }
+  ]},
+  { k: 'open', p: 2, q: 'Warum lacht Jonas, als er die Nachricht liest (Z. 29/30)? Nenne zwei mögliche Gründe.',
+    model: '1. Die Situation ist komisch: Er hat sich den steilen Weg hinaufgekämpft, und dann fällt das Turnier aus. 2. Er merkt, dass ihm der Abend mit dem Grossvater und der Sonnenuntergang mehr bedeuten als das Turnier. Er ist erleichtert.',
+    crit: ['Grund 1: Ironie / Absurdität der vergeblichen Anstrengung (1 P.)', 'Grund 2: Erleichterung / das Turnier ist ihm nicht mehr so wichtig (1 P.)'] },
+  { k: 'mc', p: 1, q: 'Was zeigen die letzten Sätze (Z. 33–35) über Jonas?', o: ['Er geniesst die Zeit mit dem Grossvater und hat es nicht mehr eilig.', 'Er ist zu müde, um schneller zu gehen.', 'Er ist enttäuscht über die Verschiebung des Turniers.', 'Der Grossvater zwingt ihn, langsam zu gehen.'], a: 0 },
+  { k: 'mc', p: 1, q: 'Auf wen bezieht sich «er» in Z. 21 («in der er als Junge einen ganzen Sommer verbracht hatte»)?', o: ['auf den Grossvater', 'auf Jonas', 'auf den Bartgeier', 'auf Luca'], a: 0 },
+  { k: 'odd', q: 'Streiche den Begriff, dessen Bedeutung dem Wort aus dem Text am wenigsten entspricht.', st: [
+    { w: 'verwarf (Z. 14)', o: ['liess fallen', 'gab auf', 'wies zurück', 'bestätigte'], a: 3 },
+    { w: 'gleichmässig (Z. 18)', o: ['regelmässig', 'stetig', 'im gleichen Tempo', 'hastig'], a: 3 }
+  ]}
+  ]
+},
+
+{ id: 'platz', title: 'Platz 47', genre: 'Erzählung', mins: 15,
+  lines: [
+  'Frau Keller hatte den Platz vor drei Wochen reserviert: Wagen 7, Platz 47, Fenster,',
+  'in Fahrtrichtung. Sie reservierte immer Platz 47, seit zwölf Jahren, jeden ersten',
+  'Montag im Monat, wenn sie nach Bern zu ihrer Schwester fuhr.',
+  'Auf Platz 47 sass ein junger Mann mit Kopfhörern, die so gross waren wie',
+  'Ohrenschützer. Er hatte die Augen geschlossen und wippte mit dem Fuss.',
+  'Frau Keller räusperte sich. Der Fuss wippte weiter.',
+  'Sie räusperte sich ein zweites Mal, lauter, und tippte schliesslich mit ihrem',
+  'Billett auf die Rückenlehne, genau neben das kleine Schild, auf dem «Reserviert',
+  'Winterthur – Bern» stand. Der junge Mann öffnete ein Auge.',
+  '«Das ist mein Platz», sagte Frau Keller.',
+  'Er schob einen Kopfhörer zur Seite. «Bitte?»',
+  '«Das ist mein Platz. Er ist reserviert. Hier steht es.»',
+  'Der junge Mann blickte auf das Schild, dann auf die vielen leeren Sitze ringsum,',
+  'dann wieder auf Frau Keller. «Es hat doch überall Platz», sagte er freundlich.',
+  '«Darum geht es nicht», sagte Frau Keller. Worum es ging, hätte sie nicht genau',
+  'erklären können. Vielleicht darum, dass man sich an Abmachungen hielt. Vielleicht',
+  'auch darum, dass ihr Mann früher immer auf Platz 48 gesessen hatte.',
+  'Der junge Mann zuckte mit den Schultern, packte seinen Rucksack und setzte sich',
+  'auf die andere Seite des Ganges. Frau Keller nahm Platz, legte ihre Handtasche auf',
+  'den Sitz neben sich und sah hinaus. Die Felder zogen vorbei, grau und nass.',
+  'Kurz nach Zürich bemerkte sie, dass der junge Mann sie ansah.',
+  '«Fahren Sie oft nach Bern?», fragte er.',
+  'Frau Keller zögerte. Sie hatte nicht die Absicht, mit einem Fremden zu plaudern,',
+  'schon gar nicht mit einem, der sich auf reservierte Plätze setzte. «Einmal im',
+  'Monat», sagte sie dennoch.',
+  '«Ich zum ersten Mal. Vorstellungsgespräch.» Er hob eine Mappe hoch, als',
+  'müsste er es beweisen. «Bei einer Bank. Ich habe keine Ahnung, was ich da soll.»',
+  '«Dann sollten Sie Ihre Krawatte richtig binden», sagte Frau Keller. «So',
+  'sieht es aus, als hätten Sie sie im Dunkeln umgelegt.»',
+  'Er blickte an sich hinunter und wurde rot. Frau Keller seufzte, nahm ihre',
+  'Handtasche vom Sitz und klopfte auf das Polster. «Setzen Sie sich. Mein Mann',
+  'hat vierzig Jahre lang jeden Morgen eine Krawatte gebunden. Irgendjemand muss',
+  'es ja können.»'
+  ],
+  qs: [
+  { k: 'rfk', q: 'Sind die folgenden Aussagen richtig, falsch oder gibt der Text darüber keinen Hinweis?', st: [
+    { s: 'Frau Keller fährt einmal im Monat nach Bern.', a: 'r', x: 'Z. 2/3 und Z. 24/25.' },
+    { s: 'Frau Kellers Mann ist gestorben.', a: 'k', x: 'Der Text deutet an, dass der Mann nicht mehr mitfährt («früher», Z. 17). Ob er gestorben ist, steht nicht da.' },
+    { s: 'Der Zug ist voll besetzt.', a: 'f', x: 'Z. 13: viele leere Sitze.' },
+    { s: 'Der junge Mann arbeitet bei einer Bank.', a: 'f', x: 'Z. 26/27: Er hat dort erst ein Vorstellungsgespräch.' },
+    { s: 'Frau Keller steigt in Winterthur ein.', a: 'r', x: 'Z. 8/9: Die Reservation gilt ab Winterthur.' }
+  ]},
+  { k: 'rf', q: 'Welche Aussagen sind korrekt, welche nicht?', st: [
+    { s: 'Der junge Mann reagiert zuerst nicht auf Frau Kellers Räuspern.', a: 'r', x: 'Z. 6.' },
+    { s: 'Der junge Mann weigert sich, den Platz freizugeben.', a: 'f', x: 'Z. 18/19: Er setzt sich auf die andere Seite.' },
+    { s: 'Frau Keller weiss genau, warum ihr der Platz so wichtig ist.', a: 'f', x: 'Z. 15/16: Sie hätte es nicht genau erklären können.' },
+    { s: 'Frau Keller beginnt das Gespräch mit dem jungen Mann.', a: 'f', x: 'Z. 22: Er fragt sie.' },
+    { s: 'Der junge Mann ist vor dem Vorstellungsgespräch unsicher.', a: 'r', x: 'Z. 27: «Ich habe keine Ahnung, was ich da soll.»' },
+    { s: 'Am Schluss bietet Frau Keller ihm den Platz neben sich an.', a: 'r', x: 'Z. 30/31.' }
+  ]},
+  { k: 'open', p: 2, q: 'Warum ist es bedeutsam, dass ihr Mann «früher immer auf Platz 48 gesessen hatte» (Z. 17)?',
+    model: 'Platz 47 ist mit der Erinnerung an ihren Mann verbunden; die Reservation ist ein Ritual. Platz 48 ist der Platz neben ihr, auf dem ihr Mann sass. Am Schluss lässt sie den jungen Mann genau dort sitzen.',
+    crit: ['Der Platz ist mit Erinnerungen an den Mann verbunden / Ritual (1 P.)', 'Bezug zum Schluss: Der junge Mann darf auf den Platz des Mannes (1 P.)'] },
+  { k: 'open', p: 2, q: 'Frau Keller legt ihre Handtasche auf den Sitz neben sich (Z. 19/20) und nimmt sie am Schluss wieder weg (Z. 30/31). Was zeigt sie damit jeweils?',
+    model: 'Zuerst grenzt sie sich ab: Niemand soll sich neben sie setzen, sie will allein sein. Am Schluss öffnet sie sich und lädt den jungen Mann ein, sich zu ihr zu setzen.',
+    crit: ['Tasche hinlegen = Abgrenzung / allein sein wollen (1 P.)', 'Tasche wegnehmen = Öffnung / Einladung (1 P.)'] },
+  { k: 'open', p: 2, q: 'Wie wirkt Frau Kellers Bemerkung über die Krawatte (Z. 28/29)? Beschreibe zwei Seiten.',
+    model: 'Einerseits ist sie direkt, fast spitz oder unhöflich. Andererseits steckt dahinter Hilfsbereitschaft: Sie will, dass er beim Gespräch einen guten Eindruck macht.',
+    crit: ['Direkt / spitz / belehrend (1 P.)', 'Fürsorglich / hilfsbereit (1 P.)'] },
+  { k: 'mc', p: 1, q: '«Er hob eine Mappe hoch, als müsste er es beweisen» (Z. 26/27). Was zeigt diese Geste?', o: ['Er ist nervös und möchte ernst genommen werden.', 'Er will Frau Keller seine Unterlagen zeigen, damit sie ihn korrigiert.', 'Er sucht etwas in seiner Mappe.', 'Er ist stolz, weil er die Stelle schon hat.'], a: 0 },
+  { k: 'mc', p: 1, q: 'Worauf bezieht sich «Er» in Z. 12 («Er ist reserviert.»)?', o: ['auf den Platz', 'auf den jungen Mann', 'auf den Kopfhörer', 'auf das Billett'], a: 0 },
+  { k: 'odd', q: 'Streiche den Begriff, dessen Bedeutung dem Wort aus dem Text am wenigsten entspricht.', st: [
+    { w: 'zögerte (Z. 23)', o: ['zauderte', 'schwankte', 'wartete ab', 'antwortete sofort'], a: 3 },
+    { w: 'Abmachungen (Z. 16)', o: ['Vereinbarungen', 'Absprachen', 'Verabredungen', 'Ausnahmen'], a: 3 }
+  ]}
+  ]
+}
+];
+
+// ===== Zusätzliche Übungsitems =====
+const MORE = {
+syn: [
+  { q: 'Sie <u>schlenderte</u> durch die Altstadt.', o: ['bummelte', 'spazierte', 'flanierte', 'hetzte'], a: 3 },
+  { q: 'Der Vortrag war <u>langatmig</u>.', o: ['weitschweifig', 'zäh', 'ermüdend', 'kurzweilig'], a: 3 },
+  { q: 'Er gab <u>widerwillig</u> nach.', o: ['ungern', 'missmutig', 'unwillig', 'bereitwillig'], a: 3 },
+  { q: 'Sie <u>vermutete</u> einen Trick.', o: ['ahnte', 'argwöhnte', 'nahm an', 'bewies'], a: 3 },
+  { q: 'Die Stimmung war <u>angespannt</u>.', o: ['verkrampft', 'gereizt', 'nervös', 'gelöst'], a: 3 },
+  { q: 'Er <u>prahlte</u> mit seinem neuen Handy.', o: ['protzte', 'gab an', 'brüstete sich', 'schämte sich'], a: 3 },
+  { q: 'Das Ergebnis war <u>verblüffend</u>.', o: ['erstaunlich', 'überraschend', 'verwunderlich', 'vorhersehbar'], a: 3 },
+  { q: 'Sie hörte <u>aufmerksam</u> zu.', o: ['konzentriert', 'gespannt', 'achtsam', 'zerstreut'], a: 3 },
+  { q: 'Der Trainer <u>tadelte</u> die Spieler.', o: ['kritisierte', 'rügte', 'schalt', 'ermutigte'], a: 3 },
+  { q: 'Die Nachricht war <u>bestürzend</u>.', o: ['erschütternd', 'schockierend', 'beunruhigend', 'bestechend'], a: 3, x: 'Falle: «bestechend» klingt ähnlich, heisst aber beeindruckend, überzeugend.' },
+  { q: 'Er wirkte <u>gelangweilt</u>.', o: ['desinteressiert', 'lustlos', 'teilnahmslos', 'gefesselt'], a: 3 },
+  { q: 'Sie <u>beharrte</u> auf ihrer Meinung.', o: ['bestand auf', 'blieb bei', 'hielt fest an', 'rückte ab von'], a: 3 }
+],
+fam: [
+  { q: 'tun → <b>die</b> …', a: ['Tat'] },
+  { q: 'fahren → <b>die</b> …', a: ['Fahrt'] },
+  { q: 'sprechen → <b>die</b> …', a: ['Sprache'] },
+  { q: 'gehen → <b>der</b> …', a: ['Gang'] },
+  { q: 'sitzen → <b>der</b> …', a: ['Sitz'] },
+  { q: 'reiten → <b>der</b> …', a: ['Ritt'] },
+  { q: 'fliessen → <b>der</b> …', a: ['Fluss'] },
+  { q: 'schwingen → <b>der</b> …', a: ['Schwung'] },
+  { q: 'giessen → <b>der</b> …', a: ['Guss'] },
+  { q: 'helfen → <b>die</b> …', a: ['Hilfe'] },
+  { q: 'der Biss → Verb: …', a: ['beissen'] },
+  { q: 'der Wurf → Verb: …', a: ['werfen'] },
+  { q: 'der Schnitt → Verb: …', a: ['schneiden'] },
+  { q: 'der Trank → Verb: …', a: ['trinken'] }
+],
+redew: [
+  { q: 'jemandem den ___ stärken', a: ['Rücken'], x: 'jemanden unterstützen' },
+  { q: 'sich die ___ verbrennen', a: ['Finger'], x: 'sich durch Einmischen schaden' },
+  { q: 'jemanden um den ___ wickeln', a: ['Finger'], x: 'jemanden leicht beeinflussen' },
+  { q: 'jemandem etwas ans ___ legen', a: ['Herz'], x: 'etwas dringend empfehlen' },
+  { q: 'die ___ hängen lassen', a: ['Ohren', 'Flügel'], x: 'mutlos sein' },
+  { q: 'jemanden aus den ___ verlieren', a: ['Augen'], x: 'den Kontakt verlieren' },
+  { q: 'jemandem unter die ___ greifen', a: ['Arme'], x: 'jemandem helfen' },
+  { q: 'jemandem auf die ___ treten', a: ['Füsse', 'Zehen'], x: 'jemanden kränken' },
+  { q: 'sich etwas aus den ___ saugen', a: ['Fingern'], x: 'etwas frei erfinden' },
+  { k: 'mc', q: 'Was bedeutet: <u>jemandem unter die Arme greifen</u>?', o: ['jemandem helfen', 'jemanden festhalten', 'jemanden kitzeln', 'jemanden verhaften'], a: 0 },
+  { k: 'mc', q: 'Was bedeutet: <u>die Ohren steifhalten</u>?', o: ['durchhalten, nicht aufgeben', 'gut zuhören', 'frieren', 'stur sein'], a: 0 },
+  { k: 'mc', q: 'Was bedeutet: <u>jemandem den Kopf waschen</u>?', o: ['jemanden scharf zurechtweisen', 'jemanden pflegen', 'jemanden beruhigen', 'jemanden überzeugen'], a: 0 },
+  { k: 'mc', q: 'Was bedeutet: <u>etwas auf die lange Bank schieben</u>?', o: ['etwas hinauszögern', 'etwas verstecken', 'etwas teilen', 'etwas genau prüfen'], a: 0 }
+],
+verst: [
+  { q: 'leer', a: ['menschenleer'] },
+  { q: 'süss', a: ['zuckersüss'] },
+  { q: 'scharf', a: ['messerscharf', 'rasiermesserscharf'] },
+  { q: 'schwer', a: ['bleischwer', 'zentnerschwer', 'tonnenschwer'] },
+  { q: 'billig', a: ['spottbillig'] },
+  { q: 'hell', a: ['taghell'] },
+  { q: 'trocken', a: ['knochentrocken', 'staubtrocken'] },
+  { q: 'jung', a: ['blutjung'] },
+  { q: 'gelb', a: ['zitronengelb', 'quittengelb', 'goldgelb', 'sonnengelb'] },
+  { q: 'weich', a: ['butterweich', 'federweich'] },
+  { q: 'fromm', a: ['lammfromm'] },
+  { q: 'dumm', a: ['strohdumm'] }
+],
+stil: [
+  { q: 'Er <u>machte</u> einen schweren Fehler.', o: ['beging', 'bereitete', 'erstellte', 'unternahm'], a: 0 },
+  { q: 'Sie <u>machte</u> ihm einen Vorschlag.', o: ['unterbreitete', 'erledigte', 'bereitete', 'fertigte'], a: 0 },
+  { q: '«Ich war es nicht!», <u>sagte</u> er und blickte zu Boden.', o: ['beteuerte', 'jubelte', 'befahl', 'erkundigte sich'], a: 0 },
+  { q: '«Gehen Sie sofort hinaus!», <u>sagte</u> die Lehrerin streng.', o: ['befahl', 'flüsterte', 'gestand', 'erkundigte sich'], a: 0 },
+  { q: 'Im Wald <u>gibt es</u> viele Pilze.', o: ['wachsen', 'erledigen', 'bereiten', 'besitzen'], a: 0 },
+  { q: 'Was ist falsch? <i>Ich habe gestern einen Film gesehen. Der Film war spannend. Der Film dauerte drei Stunden.</i>', o: ['Wortwiederholung: besser ein Pronomen («Er war spannend»)', 'Falsche Zeitform', 'Es fehlen Kommas', 'Der Text ist korrekt'], a: 0 },
+  { q: 'Was ist falsch? <i>Der Grund, weshalb ich zu spät bin, ist, weil der Bus Verspätung hatte.</i>', o: ['Die Begründung ist doppelt: «Der Grund ist, dass …»', '«weshalb» müsste «warum» heissen', '«hatte» müsste «hat» heissen', 'Der Satz ist korrekt'], a: 0 },
+  { q: 'Was ist falsch? <i>Das Mädchen, wo neben mir sitzt, heisst Lea.</i>', o: ['«wo» ist kein Relativpronomen: richtig ist «das»', '«heisst» schreibt man mit ß', 'Das Komma ist falsch', 'Der Satz ist korrekt'], a: 0, x: '«wo» als Relativpronomen ist Mundart. In der Standardsprache steht das Relativpronomen: das Mädchen, das …' },
+  { q: 'Was ist falsch? <i>Nach dem Essen machten wir den Abwasch und danach machten wir einen Spaziergang.</i>', o: ['«machten» wird wiederholt: besser «erledigten» und «unternahmen»', 'Es fehlt ein Komma vor «und»', '«danach» ist falsch', 'Der Satz ist korrekt'], a: 0 }
+],
+pein: [
+  { q: 'Ich kenne niemanden, ___ so gut kocht wie du.', a: ['der'] },
+  { q: 'Das Velo, mit ___ ich zur Schule fahre, ist neu.', a: ['dem', 'welchem'] },
+  { q: 'Die Nachbarin, ___ Katze bei uns schläft, ist verreist.', a: ['deren'] },
+  { q: 'Er lachte plötzlich laut, ___ niemand verstand.', a: ['was'] },
+  { q: 'Die Spielerinnen, ___ der Trainer gratulierte, jubelten.', a: ['denen', 'welchen'] },
+  { q: 'Es gibt vieles, ___ ich noch lernen möchte.', a: ['was'] },
+  { q: 'Der Lehrer, ___ Unterricht alle mögen, geht in Pension.', a: ['dessen'] }
+],
+zeit: [
+  { q: 'Er schläft lange.', t: 'Perfekt', a: ['Er hat lange geschlafen.'] },
+  { q: 'Wir gehen ins Kino.', t: 'Plusquamperfekt', a: ['Wir waren ins Kino gegangen.'] },
+  { q: 'Ich kann das nicht verstehen.', t: 'Präteritum', a: ['Ich konnte das nicht verstehen.'] },
+  { q: 'Sie trifft ihre Freundin.', t: 'Präteritum', a: ['Sie traf ihre Freundin.'] },
+  { q: 'Der Hund beisst den Briefträger.', t: 'Perfekt', a: ['Der Hund hat den Briefträger gebissen.'] },
+  { q: 'Du musst früher aufstehen.', t: 'Plusquamperfekt', a: ['Du hattest früher aufstehen müssen.'] },
+  { q: 'Wir laden Freunde ein.', t: 'Futur', a: ['Wir werden Freunde einladen.'] },
+  { q: 'Er denkt an sie.', t: 'Präteritum', a: ['Er dachte an sie.'] },
+  { q: 'Die Sonne geht unter.', t: 'Perfekt', a: ['Die Sonne ist untergegangen.'] },
+  { q: 'Ich darf mitkommen.', t: 'Perfekt', a: ['Ich habe mitkommen dürfen.'] },
+  { q: 'Das Kind fällt hin.', t: 'Plusquamperfekt', a: ['Das Kind war hingefallen.'] },
+  { q: 'Sie hat das Fenster geschlossen.', t: 'Präteritum', a: ['Sie schloss das Fenster.'] }
+],
+konj: [
+  { q: 'sehen', t: 'Präsens, 2. Person Singular (du)', a: ['siehst'] },
+  { q: 'sehen', t: 'Präteritum, 3. Person Singular (er)', a: ['sah'] },
+  { q: 'fallen', t: 'Präsens, 2. Person Singular (du)', a: ['fällst'] },
+  { q: 'fallen', t: 'Präteritum, 3. Person Singular (er)', a: ['fiel'] },
+  { q: 'schlafen', t: 'Präsens, 2. Person Singular (du)', a: ['schläfst'] },
+  { q: 'schlafen', t: 'Präteritum, 3. Person Singular (sie)', a: ['schlief'] },
+  { q: 'sterben', t: 'Präsens, 2. Person Singular (du)', a: ['stirbst'] },
+  { q: 'sterben', t: 'Präteritum, 3. Person Singular (er)', a: ['starb'] },
+  { q: 'tragen', t: 'Präsens, 2. Person Singular (du)', a: ['trägst'] },
+  { q: 'tragen', t: 'Präteritum, 3. Person Singular (sie)', a: ['trug'] },
+  { q: 'fressen', t: 'Präsens, 2. Person Singular (du)', a: ['frisst'] },
+  { q: 'fressen', t: 'Präteritum, 3. Person Singular (es)', a: ['frass'] },
+  { q: 'treffen', t: 'Präsens, 2. Person Singular (du)', a: ['triffst'] },
+  { q: 'treffen', t: 'Präteritum, 3. Person Singular (er)', a: ['traf'] },
+  { q: 'blasen', t: 'Präsens, 2. Person Singular (du)', a: ['bläst'] },
+  { q: 'blasen', t: 'Präteritum, 3. Person Singular (er)', a: ['blies'] }
+],
+ap: [
+  { q: 'Die Fenster werden jeden Freitag geputzt.', a: 1 },
+  { q: 'Der Himmel wurde immer dunkler.', a: 0 },
+  { q: 'Das Spiel ist abgesagt worden.', a: 1 },
+  { q: 'Er wird morgen achtzehn Jahre alt.', a: 0 },
+  { q: 'Die Schüler werden vom Lehrer gelobt.', a: 1 },
+  { q: 'Ihr werdet staunen.', a: 0 },
+  { q: 'Das Haus war 1890 gebaut worden.', a: 1 },
+  { q: 'Aus der Raupe wird ein Schmetterling.', a: 0 },
+  { q: 'Es wurde lange diskutiert.', a: 1, x: 'Unpersönliches Passiv ohne Subjekt.' }
+],
+hilf: [
+  { t: '[Hast] du schon gegessen, oder hast du noch Hunger?', x: 'Das zweite «hast» ist Vollverb (Hunger haben).' },
+  { t: 'Der Kuchen [wird] gerade gebacken, er ist bald fertig.', x: '«ist fertig»: Vollverb mit Adjektiv.' },
+  { t: 'Wir [sind] gestern lange wach geblieben.' },
+  { t: 'Er [hatte] die Aufgabe nicht verstanden, deshalb wollte er nachfragen.' },
+  { t: 'Die Kinder werden bald müde, wenn sie lange wandern.', x: 'Keine Hilfsverben: «werden müde» ist werden als Vollverb, «wandern» ein Vollverb.' },
+  { t: 'Das Fenster [war] offen gelassen [worden].' },
+  { t: 'Ich [habe] ihn gefragt, ob er krank ist.', x: '«ist krank»: Vollverb mit Adjektiv.' }
+],
+inf: [
+  { t: 'Wir hören die Vögel [singen] und bleiben [stehen].' },
+  { t: 'Es ist schwierig, früh [aufzustehen].', x: 'Bei «aufzustehen» steht das «zu» im Wort drin.' },
+  { t: 'Sie gehen heute [schwimmen], weil sie sich [abkühlen] wollen.' },
+  { t: 'Die Eltern lassen ihre Kinder lange [spielen].' },
+  { t: 'Beim Lernen hilft es, regelmässig Pausen zu [machen].', x: '«Beim Lernen»: nominalisiert, also ein Nomen.' }
+],
+pers: [
+  { t: 'Gestern [regnete] es, aber heute [scheint] die Sonne.' },
+  { t: 'Wenn du [willst], [können] wir zusammen lernen.' },
+  { t: 'Die Kinder [spielten] im Garten, während die Eltern [kochten].' },
+  { t: 'Wer [hat] mein Velo genommen?' },
+  { t: '[Kommt] ihr morgen mit, oder [bleibt] ihr hier?' }
+],
+wa: [
+  { q: 'Er arbeitet <u>gern</u> im Garten.', a: 6 },
+  { q: 'Das ist <u>meine</u> Jacke.', a: 3, x: 'Possessivpronomen' },
+  { q: 'Sie <u>lachte</u> laut.', a: 1 },
+  { q: '<u>Wegen</u> des Sturms blieben wir drinnen.', a: 4 },
+  { q: 'Ich weiss, <u>dass</u> du recht hast.', a: 5 },
+  { q: 'Das <u>Gute</u> daran ist die Lage.', a: 0, x: 'Nominalisiertes Adjektiv: mit Artikel, gross geschrieben, also Nomen.' },
+  { q: 'Der Film war <u>spannender</u> als das Buch.', a: 2 },
+  { q: 'Sie ist <u>oft</u> müde.', a: 6 },
+  { q: '<u>Wer</u> hat angerufen?', a: 3, x: 'Interrogativpronomen' },
+  { q: 'Er ging, <u>obwohl</u> es regnete.', a: 5 }
+],
+praep: [
+  { t: 'Ich warte [auf] dich [vor] dem Kino.' },
+  { t: 'Er kam [ohne] seine Schwester, denn sie war krank.' },
+  { t: 'Sie zog die Jacke an und ging [mit] ihrem Hund [in] den Park.', x: '«an» ist Verbzusatz (anziehen).' },
+  { t: 'Das Konzert fängt [um] acht Uhr an.', x: '«an» ist Verbzusatz (anfangen).' },
+  { t: 'Seit wir hier wohnen, gehen wir oft [am] See spazieren.', x: '«Seit» leitet hier einen Nebensatz ein: Konjunktion.' }
+],
+konjf: [
+  { t: 'Ich gehe nach Hause, [denn] es ist spät.' },
+  { t: 'Er spielt Gitarre [und] singt dazu.' },
+  { t: '[Wenn] du Zeit hast, ruf mich an.' },
+  { t: 'Sie wartete, [bis] alle da waren, [und] begann dann.' },
+  { t: 'Bis morgen muss ich die Aufgabe erledigen, [aber] ich habe keine Lust.', x: '«Bis morgen»: Präposition.' }
+],
+pron: [
+  { t: '[Ich] habe [das] Buch gelesen, [das] [du] [mir] geschenkt hast.' },
+  { t: '[Man] sollte [nichts] versprechen, [was] [man] nicht halten kann.' },
+  { t: 'Hat [jemand] [meinen] Schlüssel gesehen?' },
+  { t: '[Diese] Aufgabe ist schwieriger als [jene].' }
+],
+fall: [
+  { q: 'Wir freuen uns ___ das Wochenende.', a: ['auf'] },
+  { q: 'Sie wohnt bei ___ (ihre Grosseltern).', a: ['ihren Grosseltern'] },
+  { q: 'Wir gingen durch ___ (der dunkle Wald).', a: ['den dunklen Wald'] },
+  { q: 'Ich warte seit ___ (eine Stunde).', a: ['einer Stunde'] },
+  { q: 'Anstatt ___ (ein Geschenk) gab es Geld.', a: ['eines Geschenks', 'eines Geschenkes'] },
+  { q: 'Sie kämpfte gegen ___ (ihr stärkster Gegner).', a: ['ihren stärksten Gegner'] }
+],
+sgt: [
+  { t: 'Mein kleiner Bruder / spielt / jeden Nachmittag / mit seinen Freunden / Fussball.' },
+  { t: 'Nach der Schule / hat / Lea / ihrer Grossmutter / beim Einkaufen / geholfen.' },
+  { t: 'Der Zug nach Zürich / fuhr / heute Morgen / pünktlich / ab.' },
+  { t: 'Die Lehrerin der Parallelklasse / erzählte / uns / eine spannende Geschichte.' },
+  { t: 'Im Sommer / baden / viele Leute / im Bodensee.' }
+],
+sgb: [
+  { q: 'Wir helfen <u>unseren Nachbarn</u> beim Umzug.', a: 2 },
+  { q: 'Wir helfen unseren Nachbarn <u>beim Umzug</u>.', a: 4 },
+  { q: '<u>Die neue Schülerin</u> kommt aus Italien.', a: 0 },
+  { q: 'Man klagt den Mann <u>des Diebstahls</u> an.', a: 3 },
+  { q: 'Ich brauche <u>einen neuen Laptop</u>.', a: 1 },
+  { q: '<u>Uns</u> gefällt die neue Turnhalle.', a: 2 },
+  { q: 'Gestern hat <u>meine Schwester</u> Geburtstag gefeiert.', a: 0 }
+],
+umf: [
+  { q: 'Bei Regen fällt das Training aus.', a: ['Wenn es regnet, fällt das Training aus.', 'Falls es regnet, fällt das Training aus.'] },
+  { q: 'Wegen seiner Krankheit fehlte er.', a: ['Weil er krank war, fehlte er.', 'Da er krank war, fehlte er.'] },
+  { q: 'Nach dem Aufstehen trinke ich einen Tee.', a: ['Nachdem ich aufgestanden bin, trinke ich einen Tee.'] },
+  { q: 'Trotz guter Vorbereitung bestand sie die Prüfung nicht.', a: ['Obwohl sie sich gut vorbereitet hatte, bestand sie die Prüfung nicht.', 'Obschon sie sich gut vorbereitet hatte, bestand sie die Prüfung nicht.', 'Obgleich sie sich gut vorbereitet hatte, bestand sie die Prüfung nicht.'] },
+  { q: 'Vor dem Schlafengehen putze ich die Zähne.', a: ['Bevor ich schlafen gehe, putze ich die Zähne.', 'Bevor ich ins Bett gehe, putze ich die Zähne.', 'Ehe ich schlafen gehe, putze ich die Zähne.'] }
+],
+komma: [
+  { t: 'Ich glaube, dass es morgen regnet.' },
+  { t: 'Als der Film zu Ende war, gingen alle nach Hause.' },
+  { t: 'Sie lachte, weinte, schrie und tanzte.' },
+  { t: 'Frau Huber, unsere Nachbarin, giesst die Blumen.' },
+  { t: 'Wir kauften Äpfel, Birnen und Trauben, weil sie im Angebot waren.' },
+  { t: 'Der Hund, der laut bellte, rannte davon, als er uns sah.' }
+],
+rede: [
+  { q: 'wann beginnt das spiel fragte mia', a: ['«Wann beginnt das Spiel?», fragte Mia.'] },
+  { q: 'mein vater sagte morgen fahren wir in die berge', a: ['Mein Vater sagte: «Morgen fahren wir in die Berge.»', 'Mein Vater sagte: «Morgen fahren wir in die Berge!»'] },
+  { q: 'das schaffe ich nie seufzte jan', a: ['«Das schaffe ich nie», seufzte Jan.', '«Das schaffe ich nie!», seufzte Jan.'] },
+  { q: 'hör auf rief sie ich habe genug', a: ['«Hör auf!», rief sie. «Ich habe genug.»', '«Hör auf!», rief sie. «Ich habe genug!»'] }
+]
+};
+TYPES.forEach(t => { if (MORE[t.id]) t.items.push(...MORE[t.id]); });
+
+// ===== Zwei weitere Lesetexte =====
+READ.push(
+{ id: 'referat', title: 'Das Referat', genre: 'Erzählung', mins: 15,
+  lines: [
+  'Noch drei Vorträge, dann war Elias an der Reihe. Er hatte die Karteikarten so oft',
+  'gemischt, dass die Ecken weich geworden waren wie altes Brot.',
+  'Vorne sprach Lara über Bienen. Sie sprach schnell und fehlerlos, und als sie',
+  'fertig war, klatschte Frau Gerber, die Lehrerin, länger als bei allen anderen.',
+  'Elias klatschte auch. Was hätte er sonst tun sollen?',
+  'Sein Thema war die Geschichte des Fahrrads. Er hatte es gewählt, weil sein',
+  'Grossvater in der Garage ein Velo aus dem Jahr 1952 stehen hatte, mit einem',
+  'Ledersattel, der nach Regen und Öl roch. Am Wochenende hatten sie es zusammen',
+  'geputzt, und der Grossvater hatte erzählt, wie er damit jeden Morgen über den',
+  'Pass zur Lehrstelle gefahren war, bei jedem Wetter.',
+  'Nichts davon stand auf den Karteikarten. Dort standen Jahreszahlen.',
+  '«Elias, bitte.»',
+  'Er ging nach vorn. Der Weg vom Pult zur Tafel war kürzer als sonst. Er legte die',
+  'Karten auf das Lehrerpult, und als er die erste in die Hand nahm, merkte er,',
+  'dass seine Finger zitterten. Die Zahlen auf der Karte verschwammen.',
+  '«1817», begann er, «erfand Karl Drais die Laufmaschine.» Dann war es still.',
+  'Jemand hustete. Ben in der letzten Reihe flüsterte etwas, und zwei lachten.',
+  'Elias starrte auf die Karte. Die nächste Jahreszahl wollte ihm nicht einfallen,',
+  'obwohl sie direkt vor ihm stand.',
+  'Da sah er Lara. Sie sass in der ersten Reihe und tat etwas Seltsames: Sie hob',
+  'die Hände, als hielte sie einen Lenker, und machte ein fragendes Gesicht.',
+  'Elias verstand nicht sofort. Dann legte er die Karten weg.',
+  '«Eigentlich», sagte er, «möchte ich euch von einem anderen Velo erzählen.»',
+  'Er erzählte vom Ledersattel und vom Pass, vom Schnee im April und von der',
+  'Kette, die der Grossvater mit einem Schnürsenkel geflickt hatte. Er erzählte',
+  'so lange, bis Frau Gerber auf die Uhr tippte.',
+  'Diesmal lachte niemand. Ben hatte sogar aufgehört, mit dem Stuhl zu kippeln.',
+  'In der Pause kam Lara zu ihm. «Die Jahreszahlen hättest du gar nicht gebraucht»,',
+  'sagte sie.',
+  '«Du hast mir geholfen», sagte Elias. «Warum?»',
+  'Lara zuckte mit den Schultern. «Mein Referat war langweilig», sagte sie. «Ich',
+  'wollte wenigstens bei deinem nicht einschlafen.»'
+  ],
+  qs: [
+  { k: 'rfk', q: 'Sind die folgenden Aussagen richtig, falsch oder gibt der Text darüber keinen Hinweis?', st: [
+    { s: 'Elias hat sich lange auf das Referat vorbereitet.', a: 'r', x: 'Z. 1/2: Er hat die Karten so oft gemischt, dass die Ecken weich sind.' },
+    { s: 'Frau Gerber findet Laras Referat besonders gelungen.', a: 'r', x: 'Z. 4: Sie klatscht länger als bei allen anderen.' },
+    { s: 'Elias’ Grossvater wohnt in den Bergen.', a: 'k', x: 'Er ist früher über einen Pass gefahren. Wo er heute wohnt, steht nicht im Text.' },
+    { s: 'Das Velo des Grossvaters fährt noch.', a: 'k', x: 'Es wurde geputzt. Ob es fahrtüchtig ist, sagt der Text nicht.' },
+    { s: 'Elias bekommt für sein Referat eine gute Note.', a: 'k', x: 'Von einer Note ist nicht die Rede.' }
+  ]},
+  { k: 'rf', q: 'Welche Aussagen sind korrekt, welche nicht?', st: [
+    { s: 'Elias hat das Velo zusammen mit seinem Grossvater geputzt.', a: 'r', x: 'Z. 8/9.' },
+    { s: 'Die Jahreszahlen auf den Karten stammen aus den Erzählungen des Grossvaters.', a: 'f', x: 'Z. 11: Von den Erzählungen steht nichts auf den Karten.' },
+    { s: 'Als Elias zu sprechen beginnt, ist er nervös.', a: 'r', x: 'Z. 15: Seine Finger zittern.' },
+    { s: 'Ben unterstützt Elias während des Referats.', a: 'f', x: 'Z. 17: Ben flüstert, zwei lachen.' },
+    { s: 'Elias liest am Schluss alle Karteikarten vor.', a: 'f', x: 'Z. 22: Er legt die Karten weg.' },
+    { s: 'Frau Gerber muss Elias auf die Zeit aufmerksam machen.', a: 'r', x: 'Z. 26.' }
+  ]},
+  { k: 'open', p: 2, q: 'Die Ecken der Karteikarten sind «weich geworden wie altes Brot» (Z. 1/2). Was zeigt dieser Vergleich über Elias?',
+    model: 'Elias hat die Karten sehr oft in den Händen gehabt. Er ist nervös und unsicher und klammert sich an seine Notizen.',
+    crit: ['Die Karten wurden sehr oft angefasst / gemischt (1 P.)', 'Nervosität / Unsicherheit von Elias (1 P.)'] },
+  { k: 'open', p: 2, q: 'Was will Lara mit ihrer Geste (Z. 20/21) sagen?',
+    model: 'Sie tut so, als würde sie Velo fahren, und fragt mit dem Gesicht: Warum erzählst du nicht einfach vom Velo? Sie ermutigt ihn, frei zu sprechen, statt Zahlen abzulesen.',
+    crit: ['Die Geste steht für das Velo / das Thema (1 P.)', 'Aufforderung, frei zu erzählen statt abzulesen / Ermutigung (1 P.)'] },
+  { k: 'open', p: 2, q: 'Warum lacht beim zweiten Teil des Referats niemand mehr (Z. 27)?',
+    model: 'Elias erzählt eine persönliche, lebendige Geschichte und spricht frei. Das ist spannend und echt. Die Klasse hört gebannt zu, sogar Ben ist ruhig.',
+    crit: ['Persönliche / spannende Geschichte statt trockener Zahlen (1 P.)', 'Elias wirkt sicher, die Klasse hört aufmerksam zu (1 P.)'] },
+  { k: 'mc', p: 1, q: 'Wie wirkt Laras Antwort am Schluss (Z. 31/32)?', o: ['Sie spielt ihre Hilfe mit Humor herunter.', 'Sie ist eifersüchtig auf Elias.', 'Sie will Elias kritisieren.', 'Sie findet Referate grundsätzlich unnötig.'], a: 0 },
+  { k: 'mc', p: 1, q: 'Worauf bezieht sich «sie» in Z. 19 («obwohl sie direkt vor ihm stand»)?', o: ['auf die nächste Jahreszahl', 'auf Lara', 'auf Frau Gerber', 'auf die Tafel'], a: 0 },
+  { k: 'odd', q: 'Streiche den Begriff, dessen Bedeutung dem Wort aus dem Text am wenigsten entspricht.', st: [
+    { w: 'verschwammen (Z. 15)', o: ['wurden undeutlich', 'zerflossen', 'wurden unscharf', 'wurden deutlicher'], a: 3 },
+    { w: 'kippeln (Z. 27)', o: ['schaukeln', 'wippen', 'wackeln', 'stillsitzen'], a: 3 }
+  ]}
+  ]
+},
+{ id: 'nachbarin', title: 'Die Werferin', genre: 'Erzählung', mins: 15,
+  lines: [
+  'Seit drei Wochen wohnte Nora in Weinfelden, und seit drei Wochen hatte sie mit',
+  'niemandem ein Wort gesprochen, das nicht «Danke» oder «Ja» gewesen war.',
+  'Die Wohnung war grösser als die alte in Zürich. Ihr Zimmer hatte einen Balkon,',
+  'und vom Balkon aus sah man in den Garten der Nachbarin. Die Nachbarin war alt,',
+  'trug einen Strohhut, auch wenn es regnete, und redete mit ihren Tomaten.',
+  '«Sie ist komisch», hatte Nora zu ihrer Mutter gesagt.',
+  '«Sie ist einsam», hatte die Mutter geantwortet, ohne vom Umzugskarton aufzusehen.',
+  'An einem Samstag flog Noras Frisbee über den Zaun. Sie hatte es allein gegen',
+  'die Hauswand geworfen, immer wieder, bis ein Wurf misslang. Jetzt lag es mitten',
+  'im Tomatenbeet.',
+  'Nora stand lange am Zaun. Sie hätte klingeln können. Sie hätte auch einfach',
+  'hinüberklettern können, der Zaun war niedrig. Sie tat beides nicht.',
+  '«Suchst du das hier?» Die Nachbarin war hinter den Stauden aufgetaucht, das',
+  'Frisbee in der einen Hand, eine Tomate in der anderen.',
+  '«Entschuldigung», sagte Nora. «Ich wollte nicht …»',
+  '«Die Tomaten haben schon Schlimmeres erlebt. Hagel zum Beispiel. Oder meinen',
+  'Mann, als er noch Fussball spielte.» Sie reichte Nora das Frisbee über den Zaun',
+  'und behielt die Tomate. «Kannst du werfen?»',
+  '«Ein bisschen.»',
+  '«Mein Enkel konnte es nicht. Er ist jetzt in Australien.» Die Nachbarin betrachtete',
+  'das Frisbee, als hätte sie noch nie eines gesehen. «Zeig mal.»',
+  'Nora warf. Das Frisbee segelte flach über den Garten und landete sanft im Gras',
+  'vor dem Gartenhaus.',
+  '«Na also», sagte die Nachbarin. Sie stapfte durch das Beet, hob das Frisbee auf',
+  'und warf es zurück. Es flog schief, prallte gegen den Zaun und fiel zu Boden.',
+  'Die Nachbarin lachte, und Nora lachte mit, zum ersten Mal seit drei Wochen.',
+  'Am Abend stand ein Korb mit Tomaten vor der Wohnungstür. Daneben lag ein Zettel',
+  'in krakeliger Schrift: «Für die Werferin. Morgen 15 Uhr Training? E. Brunner»',
+  'Nora las den Zettel zweimal. Dann holte sie einen Stift.'
+  ],
+  qs: [
+  { k: 'rfk', q: 'Sind die folgenden Aussagen richtig, falsch oder gibt der Text darüber keinen Hinweis?', st: [
+    { s: 'Nora ist von Zürich nach Weinfelden umgezogen.', a: 'r', x: 'Z. 1 und Z. 3.' },
+    { s: 'Nora hat Geschwister.', a: 'k', x: 'Der Text erwähnt nur die Mutter.' },
+    { s: 'Die Nachbarin lebt allein.', a: 'k', x: 'Die Mutter vermutet, dass sie einsam ist, und der Mann wird nur in der Vergangenheit erwähnt. Dass sie allein lebt, steht aber nicht da.' },
+    { s: 'Der Zaun zwischen den Gärten ist hoch.', a: 'f', x: 'Z. 12: Der Zaun war niedrig.' },
+    { s: 'Die Nachbarin heisst mit Nachnamen Brunner.', a: 'r', x: 'Z. 28: Unterschrift auf dem Zettel.' }
+  ]},
+  { k: 'rf', q: 'Welche Aussagen sind korrekt, welche nicht?', st: [
+    { s: 'Nora hat seit dem Umzug kaum mit jemandem gesprochen.', a: 'r', x: 'Z. 1/2.' },
+    { s: 'Die Mutter teilt Noras Meinung über die Nachbarin.', a: 'f', x: 'Z. 7: Sie sieht es anders.' },
+    { s: 'Nora klettert über den Zaun, um ihr Frisbee zu holen.', a: 'f', x: 'Z. 12: Sie tut es nicht.' },
+    { s: 'Die Nachbarin ärgert sich über die beschädigten Tomaten.', a: 'f', x: 'Z. 16: Sie reagiert gelassen und mit Humor.' },
+    { s: 'Die Nachbarin kann gut Frisbee werfen.', a: 'f', x: 'Z. 25: Ihr Wurf fliegt schief.' },
+    { s: 'Am Abend steht ein Korb mit Tomaten vor Noras Tür.', a: 'r', x: 'Z. 27.' }
+  ]},
+  { k: 'open', p: 2, q: 'Nora nennt die Nachbarin «komisch», die Mutter sagt «einsam» (Z. 6/7). Was zeigen diese beiden Aussagen?',
+    model: 'Nora urteilt nach dem, was sie sieht: Strohhut, Gespräche mit Tomaten. Die Mutter schaut tiefer und erkennt den Grund für dieses Verhalten. Gleichzeitig passt «einsam» auch zu Nora selbst.',
+    crit: ['Nora urteilt nach dem Äusseren, die Mutter erkennt den Grund (1 P.)', 'Einsamkeit als gemeinsames Thema / Bezug zu Nora (1 P.)'] },
+  { k: 'open', p: 2, q: 'Warum klingelt Nora nicht und klettert auch nicht über den Zaun (Z. 11/12)?',
+    model: 'Sie ist schüchtern und traut sich nicht, Kontakt aufzunehmen. Seit dem Umzug hat sie mit niemandem gesprochen, und vielleicht hat sie Angst vor Ärger wegen der Tomaten.',
+    crit: ['Schüchternheit / Unsicherheit (1 P.)', 'Begründung aus dem Text: neu im Ort, kein Kontakt / Angst vor Ärger (1 P.)'] },
+  { k: 'open', p: 2, q: 'Was bedeutet der letzte Satz «Dann holte sie einen Stift.» (Z. 29)?',
+    model: 'Nora will auf den Zettel antworten und das Training annehmen. Sie öffnet sich zum ersten Mal und geht selbst auf jemanden zu. Eine Freundschaft beginnt.',
+    crit: ['Sie antwortet / sagt zu (1 P.)', 'Wendepunkt: Nora öffnet sich, Beginn einer Beziehung (1 P.)'] },
+  { k: 'mc', p: 1, q: 'Worauf bezieht sich «es» in Z. 8 («Sie hatte es allein gegen die Hauswand geworfen»)?', o: ['auf das Frisbee', 'auf den Zaun', 'auf das Tomatenbeet', 'auf den Balkon'], a: 0 },
+  { k: 'mc', p: 1, q: 'Warum erwähnt die Nachbarin ihren Enkel (Z. 20)?', o: ['Sie vermisst ihn, und Nora erinnert sie an ihn.', 'Sie will mit ihm angeben.', 'Sie möchte, dass Nora ihm schreibt.', 'Sie will zeigen, dass Frisbee nur etwas für Kinder ist.'], a: 0 },
+  { k: 'odd', q: 'Streiche den Begriff, dessen Bedeutung dem Wort aus dem Text am wenigsten entspricht.', st: [
+    { w: 'krakeliger (Z. 28)', o: ['zittriger', 'ungelenker', 'unregelmässiger', 'sauberer'], a: 3 },
+    { w: 'stapfte (Z. 24)', o: ['stampfte', 'trat schwer auf', 'ging mit schweren Schritten', 'schwebte'], a: 3 }
+  ]}
+  ]
+}
+);
+
+// ===== App =====
+const $app = document.getElementById('app');
+const SKEY = 'kt-deutsch-v1';
+const ROUND = 8, MIXROUND = 12;
+const LOGO = 'data:image/png;base64,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';
+
+// ---------- Zustand ----------
+const fresh = () => ({ v: 2, it: {}, st: {}, rd: {}, xp: 0, streak: 0, lastDay: null, stars: {}, tro: {}, rounds: 0, correct: 0, perfect: 0 });
+let S = fresh();
+try { const raw = localStorage.getItem(SKEY); if (raw) { const p = JSON.parse(raw); if (p && p.it) S = Object.assign(fresh(), p); } } catch (e) {}
+function save() { try { localStorage.setItem(SKEY, JSON.stringify(S)); } catch (e) {} }
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const h = html => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstElementChild; };
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const fmt = x => String(Math.round(x * 2) / 2).replace('.', ',');
+const TBY = Object.fromEntries(TYPES.map(t => [t.id, t]));
+const key = (t, i) => t + ':' + i;
+const box = (t, i) => S.it[key(t, i)] ?? -1;
+const reduced = () => !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+// ---------- Stufen, Serie, Sterne ----------
+const LEVELS = [
+  { xp: 0, name: 'Notizzettel', d: 'Der Anfang' },
+  { xp: 120, name: 'Aufsatzheft', d: 'Es wird ernst' },
+  { xp: 300, name: 'Duden', d: 'Regeln im Griff' },
+  { xp: 600, name: 'Korrektorin', d: 'Findet jeden Fehler' },
+  { xp: 1000, name: 'Lektor', d: 'Sprachgefühl pur' },
+  { xp: 1600, name: 'Literaturpreis', d: 'Bereit für die Kanti' }
+];
+const levelOf = x => { let l = 0; LEVELS.forEach((v, i) => { if (x >= v.xp) l = i; }); return l; };
+const dayIdx = () => { const d = new Date(); return Math.floor((d.getTime() - d.getTimezoneOffset() * 60000) / 86400000); };
+const streakNow = () => S.lastDay === null ? 0 : (dayIdx() - S.lastDay > 2 ? 0 : S.streak);
+function touchStreak() {
+  const t = dayIdx();
+  if (S.lastDay === null) S.streak = 1;
+  else { const diff = t - S.lastDay; if (diff === 0) return; S.streak = diff <= 2 ? S.streak + 1 : 1; }
+  S.lastDay = t;
+}
+const starsFor = (c, n) => c / n >= 1 ? 3 : c / n >= .85 ? 2 : c / n >= .7 ? 1 : 0;
+const starTxt = n => [0, 1, 2].map(i => i < n ? '★' : '<span class="off">☆</span>').join('');
+
+// ---------- Pokale ----------
+const CUP = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10v2h4v3a5 5 0 0 1-4.3 5A5.5 5.5 0 0 1 13 15.9V18h3.5v3h-9v-3H11v-2.1A5.5 5.5 0 0 1 7.3 12 5 5 0 0 1 3 7V4h4V2zm10 4v3.8A3 3 0 0 0 19 7V6h-2zM5 6v1a3 3 0 0 0 2 2.8V6H5z"/></svg>';
+const allStar = ids => ids.every(id => (S.stars[id] || 0) >= 3);
+const TROPHIES = [
+  { id: 'start', name: 'Los gehts', d: 'Erste Übungsrunde abgeschlossen', ok: () => S.rounds >= 1 },
+  { id: 'perfekt', name: 'Fehlerfrei', d: 'Eine Runde ohne Fehler', ok: () => S.perfect >= 1 },
+  { id: 'serie3', name: 'Dranbleiben', d: '3 Tage Serie', ok: () => S.streak >= 3 },
+  { id: 'serie7', name: 'Wochenserie', d: '7 Tage Serie', ok: () => S.streak >= 7 },
+  { id: 'hundert', name: '100 Richtige', d: '100 Aufgaben richtig gelöst', ok: () => S.correct >= 100 },
+  { id: 'duden', name: 'Duden-Stufe', d: 'Stufe 3 erreicht', ok: () => levelOf(S.xp) >= 2 },
+  { id: 'verb', name: 'Verbprofi', d: '3 Sterne: Zeitformen, Konjugation, Aktiv/Passiv', ok: () => allStar(['zeit', 'konj', 'ap']) },
+  { id: 'satz', name: 'Satzbaumeisterin', d: '3 Sterne: Satzglieder trennen und bestimmen', ok: () => allStar(['sgt', 'sgb']) },
+  { id: 'komma', name: 'Kommaprofi', d: '3 Sterne: Kommas und direkte Rede', ok: () => allStar(['komma', 'rede']) },
+  { id: 'wortart', name: 'Wortarten-Detektiv', d: '3 Sterne: Wortarten bestimmen und Präpositionen finden', ok: () => allStar(['wa', 'praep']) },
+  { id: 'lese90', name: 'Genau gelesen', d: 'Ein Lesetext mit mindestens 90 % der Punkte', ok: () => READ.some(r => S.rd[r.id] && S.rd[r.id].best >= .9 * maxPts(r)) },
+  { id: 'lesealle', name: 'Leseratte', d: 'Alle Lesetexte gelöst', ok: () => READ.every(r => S.rd[r.id]) },
+  { id: 'allrounder', name: 'Allrounder', d: 'In jedem Aufgabentyp mindestens 1 Stern', ok: () => TYPES.every(t => (S.stars[t.id] || 0) >= 1) }
+];
+function checkTrophies() {
+  const neu = [];
+  TROPHIES.forEach(t => { if (!S.tro[t.id] && t.ok()) { S.tro[t.id] = Date.now(); neu.push(t); } });
+  return neu;
+}
+const trophyCard = (t, isNew) => `<div class="trophy${S.tro[t.id] ? ' on' : ''}${isNew ? ' new' : ''}">${CUP}<b>${t.name}</b><span>${t.d}</span></div>`;
+
+// ---------- Fortschritt pro Typ ----------
+function mastery(t) {
+  const n = t.items.length; let sum = 0, sure = 0, seen = 0;
+  t.items.forEach((_, i) => { const b = box(t.id, i); if (b >= 0) { seen++; sum += b / 4; if (b >= 3) sure++; } });
+  return { p: sum / n, sure, seen, n };
+}
+const segs = p => { const on = Math.round(p * 10); return '<div class="mast" aria-hidden="true">' + Array.from({ length: 10 }, (_, i) => `<span class="seg${i < on ? ' on' : ''}"></span>`).join('') + '</div>'; };
+function weightedPick(cands, n) {
+  const out = []; const pool = cands.slice();
+  while (out.length < n && pool.length) {
+    const tot = pool.reduce((s, c) => s + c.w, 0); let r = Math.random() * tot, k = 0;
+    for (; k < pool.length - 1; k++) { r -= pool[k].w; if (r <= 0) break; }
+    out.push(pool[k]); pool.splice(k, 1);
+  }
+  return out;
+}
+const itemWeight = (t, i) => { const b = box(t, i); return b < 0 ? 4 : (5 - b) ** 1.5; };
+
+// ---------- Rahmen ----------
+let tab = 'grammar';
+try { tab = localStorage.getItem(SKEY + '-tab') || 'grammar'; } catch (e) {}
+let lastXpShown = null;
+function header() {
+  const lv = levelOf(S.xp), cur = LEVELS[lv], nxt = LEVELS[lv + 1];
+  const pct = nxt ? Math.round((S.xp - cur.xp) / (nxt.xp - cur.xp) * 100) : 100;
+  const sn = streakNow();
+  const T = [['grammar', 'Sprache'], ['read', 'Leseverstehen'], ['stats', 'Pokale']];
+  return `<header class="top">
+    <div class="topbar"><div class="logochip"><img src="${LOGO}" alt="Sekundarschule Halingen"></div><span class="tag inv">Deutsch · Aufnahmeprüfung</span></div>
+    <h1>Kanti-Trainer Deutsch</h1>
+    <p class="lead">Sprachprüfung üben: Grammatik, Wortschatz und Leseverstehen</p>
+    <div class="stats">
+      <div class="stat"><span class="k">Stufe ${lv + 1}</span><span class="v">${cur.name}</span><span class="s">${cur.d}</span></div>
+      <div class="stat"><span class="k">Punkte</span><span class="v mono" data-count="${S.xp}" data-suffix=" XP">${S.xp} XP</span><span class="mono s">${nxt ? 'nächste Stufe bei ' + nxt.xp : 'Höchste Stufe'}</span></div>
+      <div class="stat"><span class="k">Serie</span><span class="v mono">${sn} ${sn === 1 ? 'Tag' : 'Tage'}</span><span class="s">1 freier Tag erlaubt</span></div>
+    </div>
+    <div class="xpbar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="Fortschritt zur nächsten Stufe"><div data-w="${pct}" style="width:0%"></div></div>
+    <nav class="tabs" aria-label="Bereiche">${T.map(([id, l]) => `<button data-tab="${id}" ${tab === id ? 'aria-current="page"' : ''}>${l}</button>`).join('')}</nav>
+  </header>`;
+}
+const footer = () => `<footer class="foot"><div><div class="author">Autor: Alexander Weng</div><div class="small">Sekundarschule Halingen · Übungstexte und Aufgaben im Stil der Aufnahmeprüfung der Thurgauer Kantonsschulen</div></div><div class="logochip"><img src="${LOGO}" alt="Sekundarschule Halingen" style="height:24px"></div></footer>`;
+function mount(html, opts = {}) {
+  $app.innerHTML = (opts.head ? header() : '') + `<main class="wrap view${opts.wide ? ' wide' : ''}">${html}${footer()}</main>`;
+  $app.querySelectorAll('[data-tab]').forEach(b => b.onclick = () => go(b.dataset.tab));
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    $app.querySelectorAll('[data-w]').forEach(el => el.style.width = el.dataset.w + '%');
+    $app.querySelectorAll('[data-count]').forEach(el => {
+      const to = +el.dataset.count, from = el.closest('.top') ? (lastXpShown ?? to) : 0;
+      if (reduced() || from === to) { el.textContent = (el.dataset.prefix || '') + to + (el.dataset.suffix || ''); return; }
+      const t0 = performance.now();
+      const step = now => { const k = Math.min(1, (now - t0) / 900), v = from + (to - from) * (1 - Math.pow(1 - k, 3)); el.textContent = (el.dataset.prefix || '') + Math.round(v) + (el.dataset.suffix || ''); if (k < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    });
+    if (opts.head) lastXpShown = S.xp;
+  }));
+  window.scrollTo(0, 0);
+}
+function confetti(host) {
+  if (!host || reduced()) return;
+  const cols = ['var(--primary)', 'var(--gold)', 'var(--accent-text)', 'var(--text)'];
+  const boxEl = document.createElement('div'); boxEl.className = 'confetti'; boxEl.setAttribute('aria-hidden', 'true');
+  for (let i = 0; i < 30; i++) {
+    const s = document.createElement('span'), a = Math.random() * Math.PI * 2, d = 80 + Math.random() * 150;
+    s.style.setProperty('--dx', Math.cos(a) * d + 'px'); s.style.setProperty('--dy', (Math.sin(a) * d - 60) + 'px');
+    s.style.setProperty('--r', (Math.random() * 720 - 360) + 'deg'); s.style.background = cols[i % cols.length];
+    s.style.animationDelay = (Math.random() * 120) + 'ms'; boxEl.appendChild(s);
+  }
+  host.appendChild(boxEl); setTimeout(() => boxEl.remove(), 1700);
+}
+function go(t) {
+  tab = t; try { localStorage.setItem(SKEY + '-tab', t); } catch (e) {}
+  if (t === 'grammar') viewHome(); else if (t === 'read') viewReadList(); else viewStats();
+}
+
+// ---------- Startseite Sprache ----------
+function viewHome() {
+  let idx = 0;
+  const cats = CATS.map(c => `
+    <div class="cathead"><h2>${c.name}</h2><span class="small">${c.note}</span></div>
+    <div class="path">${TYPES.filter(t => t.cat === c.id).map(t => { const m = mastery(t); idx++; return `
+      <article class="card st" style="--i:${idx % 8}">
+        <div class="num mono" aria-hidden="true">${idx}</div>
+        <div class="stbody">
+          <h3>${t.name}</h3>
+          <div class="sub">${t.exam === 'jede Prüfung' ? 'kommt in jeder Prüfung' : 'Prüfung ' + t.exam} · ${t.items.length} Aufgaben</div>
+          ${segs(m.p)}
+          <div class="starsrow"><span class="stars" aria-label="${S.stars[t.id] || 0} von 3 Sternen">${starTxt(S.stars[t.id] || 0)}</span><span class="small">${m.sure} von ${m.n} sicher</span></div>
+        </div>
+        <button class="btn${m.seen === 0 && idx === 1 ? ' btn-primary' : ''}" data-t="${t.id}">Üben</button>
+      </article>`; }).join('')}</div>`).join('');
+  const nT = Object.keys(S.tro).length;
+  mount(`
+    <article class="card review">
+      <div><h3>Gemischtes Training</h3><p class="small">${MIXROUND} Aufgaben aus allen Bereichen. Was du falsch gemacht hast, kommt öfter dran.</p></div>
+      <button class="btn btn-primary" id="mix">Runde starten</button>
+    </article>
+    <article class="card" style="margin-top:12px">
+      <div class="row" style="margin:0"><div><div class="tag">Pokalschrank</div><p class="small">${nT} von ${TROPHIES.length} Pokalen gesammelt</p></div><button class="btn sm" id="totro">Alle ansehen</button></div>
+      <div class="trophyrow">${TROPHIES.map(t => CUP.replace('<svg', `<svg class="${S.tro[t.id] ? 'on' : ''}"`).replace('aria-hidden="true"', `role="img" aria-label="${t.name}${S.tro[t.id] ? '' : ' (noch offen)'}"`)).join('')}</div>
+    </article>
+    <div class="row"><h2>Dein Lernpfad</h2><span class="small">Pro Runde ${ROUND} Aufgaben · bis 3 Sterne</span></div>
+    ${cats}`, { head: true });
+  $app.querySelector('#mix').onclick = startMix;
+  $app.querySelector('#totro').onclick = () => go('stats');
+  $app.querySelectorAll('[data-t]').forEach(b => b.onclick = () => startType(b.dataset.t));
+}
+
+// ---------- Session ----------
+let SES = null;
+function startType(tid) {
+  const t = TBY[tid];
+  const picks = weightedPick(t.items.map((_, i) => ({ t: tid, i, w: itemWeight(tid, i) })), Math.min(ROUND, t.items.length));
+  SES = { mode: 'type', tid, title: t.name, list: picks, pos: 0, res: [], xp: 0, again: () => startType(tid) };
+  renderItem();
+}
+function startMix() {
+  const cands = [];
+  TYPES.forEach(t => { const m = mastery(t); t.items.forEach((_, i) => cands.push({ t: t.id, i, w: itemWeight(t.id, i) * (1.2 - m.p) })); });
+  let picks = weightedPick(cands, MIXROUND * 3); const cnt = {};
+  picks = picks.filter(p => (cnt[p.t] = (cnt[p.t] || 0) + 1) <= 2).slice(0, MIXROUND);
+  SES = { mode: 'mix', title: 'Gemischtes Training', list: shuffle(picks), pos: 0, res: [], xp: 0, again: startMix };
+  renderItem();
+}
+function record(ok) {
+  const { t, i } = SES.list[SES.pos]; const k = key(t, i);
+  const b = S.it[k] ?? 0; S.it[k] = ok ? Math.min(4, b + 1) : Math.max(0, b - 2);
+  const st = S.st[t] || (S.st[t] = { n: 0, ok: 0 }); st.n++;
+  if (ok) { st.ok++; S.correct++; S.xp += 10; SES.xp += 10; }
+  SES.res[SES.pos] = ok; save();
+}
+
+function renderItem() {
+  const { t: tid, i } = SES.list[SES.pos]; const t = TBY[tid]; const it = t.items[i];
+  const kind = it.k || t.kind; const n = SES.list.length;
+  mount(`
+    <div class="rtop"><button class="btn sm" id="quit">Beenden</button><span class="mono small">Aufgabe ${SES.pos + 1} von ${n} · <span id="sxp">+${SES.xp} XP</span></span></div>
+    <div class="xpbar light" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(SES.pos / n * 100)}" aria-label="Fortschritt in dieser Runde"><div style="width:${Math.round(SES.pos / n * 100)}%"></div></div>
+    <section class="card qcard">
+      <div class="tags"><span class="tag">${esc(t.name)}</span>${SES.mode === 'mix' ? '<span class="badge">Gemischt</span>' : ''}</div>
+      <p class="instr">${kind === 'mc' && it.k === 'mc' ? 'Was bedeutet die Redewendung?' : t.instr}</p>
+      <details class="merk"><summary>Merkhilfe</summary><div>${t.tip}</div></details>
+      <div id="body"></div>
+      <div id="fb"></div>
+      <div id="acts"></div>
+    </section>`);
+  $app.querySelector('#quit').onclick = () => go('grammar');
+  const body = $app.querySelector('#body'), acts = $app.querySelector('#acts'), fb = $app.querySelector('#fb');
+  ({ mc: renderMC, input: renderInput, mark: renderMark, split: renderGaps, comma: renderGaps }[kind])(t, it, kind, body, acts, fb);
+}
+function nextBtn(acts) {
+  acts.innerHTML = '';
+  const last = SES.pos === SES.list.length - 1;
+  const b = h(`<button class="btn btn-primary block">${last ? 'Ergebnis ansehen' : 'Weiter'}</button>`);
+  b.onclick = () => { if (last) viewSummary(); else { SES.pos++; renderItem(); } };
+  acts.append(b); b.focus({ preventScroll: true });
+  const sx = $app.querySelector('#sxp'); if (sx) sx.textContent = '+' + SES.xp + ' XP';
+}
+function showFb(fb, ok, solHtml, x, extra) {
+  fb.innerHTML = `<div class="fb ${ok ? 'good' : 'bad'}" role="status"><div class="fbt"><span>${ok ? 'Richtig.' : 'Nicht ganz.'}</span>${ok ? '<span class="xppop">+10 XP</span>' : ''}</div>${!ok && solHtml ? `<div class="sol">${solHtml}</div>` : ''}${x ? `<div class="fbb">${x}</div>` : ''}</div>`;
+  if (extra) fb.firstChild.append(extra);
+}
+const checkBtn = acts => { const b = h('<button class="btn btn-primary block">Prüfen</button>'); acts.append(b); return b; };
+
+// --- Multiple Choice ---
+function renderMC(t, it, kind, body, acts, fb) {
+  const opts = it.o || t.opts; const order = (t.fixed && !it.o) ? opts.map((_, k) => k) : shuffle(opts.map((_, k) => k));
+  const many = opts.length > 4;
+  body.innerHTML = `<div class="q">${it.q}</div><div class="opts${many ? ' grid2' : ''}">${order.map((k, j) => `<button class="opt" data-k="${k}">${many ? '' : `<span class="ltr mono" aria-hidden="true">${'ABCD'[j]}</span>`}<span>${esc(opts[k])}</span></button>`).join('')}</div>`;
+  body.querySelectorAll('.opt').forEach(b => b.onclick = () => {
+    const k = +b.dataset.k, ok = k === it.a;
+    body.querySelectorAll('.opt').forEach(o => { o.disabled = true; if (+o.dataset.k === it.a) o.classList.add('good'); });
+    if (!ok) b.classList.add('bad');
+    record(ok); showFb(fb, ok, '', it.x); nextBtn(acts);
+  });
+}
+
+// --- Freitext ---
+const QUOTES = /[«»„“”"‹›‚‘]/g;
+function norm(s, mode) {
+  s = s.normalize('NFC').replace(/ß/g, 'ss').replace(/[’`´]/g, "'").replace(/\s+/g, ' ').trim();
+  if (mode === 'strict') return s.replace(QUOTES, '"').replace(/\s*"\s*/g, '"').replace(/\s+([,.!?:;])/g, '$1');
+  s = s.replace(/\s+([,.!?:;])/g, '$1').replace(/[.!?]+$/, '').trim();
+  if (mode === 'word') s = s.replace(/^(der|die|das|ein|eine)\s+/i, '');
+  if (mode === 'verb') s = s.replace(/^(ich|du|er|sie|es|wir|ihr)\s+/i, '');
+  return s;
+}
+function renderInput(t, it, kind, body, acts, fb) {
+  const isSent = t.norm === 'sentence' || t.norm === 'strict';
+  body.innerHTML = `<div class="q">${esc(it.q).replace(/___/g, '<u>&nbsp;?&nbsp;</u>')}${it.t ? `<span class="target">${esc(it.t)}</span>` : ''}</div>
+    <div class="ansrow"><input id="ans" class="numin" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${isSent ? 'Ganzen Satz schreiben …' : 'Antwort …'}" aria-label="Antwort"></div>`;
+  const inp = body.querySelector('#ans'); inp.focus({ preventScroll: true });
+  const chk = checkBtn(acts);
+  const check = () => {
+    const v = inp.value; if (!v.trim()) { inp.focus(); return; }
+    const mode = t.norm || 'phrase';
+    const nv = norm(v, mode); const ok = it.a.some(a => norm(a, mode) === nv);
+    const caseOnly = !ok && it.a.some(a => norm(a, mode).toLowerCase() === nv.toLowerCase());
+    inp.readOnly = true; inp.classList.add(ok ? 'ok' : 'err');
+    record(ok);
+    let x = it.x || ''; if (caseOnly) x = 'Achte auf die Gross- und Kleinschreibung. ' + x;
+    const sol = esc(it.a[0]) + (it.a.length > 1 ? `<div class="xp">auch richtig: ${it.a.slice(1).map(esc).join(' · ')}</div>` : '');
+    let extra = null;
+    if (!ok && t.override) {
+      extra = h('<p style="margin-top:10px"><button class="linkbtn">Meine Antwort ist auch richtig</button></p>');
+      extra.querySelector('button').onclick = () => {
+        const p = SES.list[SES.pos], k = key(p.t, p.i); S.it[k] = Math.min(4, (S.it[k] ?? 0) + 2);
+        S.st[p.t].ok++; S.correct++; S.xp += 10; SES.xp += 10; SES.res[SES.pos] = true; save();
+        inp.classList.replace('err', 'ok'); showFb(fb, true, '', 'Als richtig gezählt. Vergleiche trotzdem mit der Musterlösung: ' + esc(it.a[0]));
+        const sx = $app.querySelector('#sxp'); if (sx) sx.textContent = '+' + SES.xp + ' XP';
+      };
+    }
+    showFb(fb, ok, sol, x, extra); nextBtn(acts);
+  };
+  chk.onclick = check; inp.addEventListener('keydown', e => { if (e.key === 'Enter' && !inp.readOnly) check(); });
+}
+
+// --- Wörter markieren ---
+function tokenize(text) {
+  return text.split(' ').map(tok => {
+    const m = tok.match(/^([^\p{L}\d\[]*)(\[?)([\p{L}\d\-]+)(\]?)(.*)$/u);
+    if (!m) return { pre: tok, w: '', post: '', hit: false };
+    return { pre: m[1], w: m[3], post: m[5], hit: m[2] === '[' };
+  });
+}
+function renderMark(t, it, kind, body, acts, fb) {
+  const toks = tokenize(it.t);
+  body.innerHTML = `<div class="toks">${toks.map((k, j) => `${esc(k.pre)}${k.w ? `<button class="tok" data-j="${j}" aria-pressed="false">${esc(k.w)}</button>` : ''}${esc(k.post)}`).join(' ')}</div>`;
+  body.querySelectorAll('.tok').forEach(b => b.onclick = () => { b.classList.toggle('sel'); b.setAttribute('aria-pressed', b.classList.contains('sel')); });
+  checkBtn(acts).onclick = () => {
+    let ok = true;
+    body.querySelectorAll('.tok').forEach(b => {
+      const k = toks[+b.dataset.j], sel = b.classList.contains('sel'); b.disabled = true; b.classList.remove('sel');
+      if (sel && k.hit) b.classList.add('right'); else if (sel && !k.hit) { b.classList.add('wrong'); ok = false; } else if (!sel && k.hit) { b.classList.add('right', 'miss'); ok = false; }
+    });
+    const hits = toks.filter(k => k.hit);
+    const sol = hits.length ? 'Lösung: ' + hits.map(k => '<b>' + esc(k.w) + '</b>').join(', ') : 'In diesem Satz gibt es keine.';
+    record(ok); showFb(fb, ok, sol + '<div class="xp">Gestrichelt = übersehen, durchgestrichen = zu viel markiert.</div>', it.x); nextBtn(acts);
+  };
+}
+
+// --- Lücken (Satzglieder trennen / Kommas) ---
+function renderGaps(t, it, kind, body, acts, fb) {
+  const words = [], correct = new Set();
+  if (kind === 'split') {
+    const parts = it.t.split(' / ');
+    parts.forEach((p, pi) => { words.push(...p.split(' ')); if (pi < parts.length - 1) correct.add(words.length - 1); });
+  } else {
+    it.t.split(' ').forEach((w, j, arr) => { if (/,$/.test(w) && j < arr.length - 1) { correct.add(j); w = w.slice(0, -1); } words.push(w); });
+  }
+  const sym = kind === 'split' ? '|' : ',';
+  body.innerHTML = `<div class="gtext">${words.map((w, j) => `<span class="w">${esc(w)}${j < words.length - 1 ? `<button class="gap" data-j="${j}" aria-label="Lücke nach ${esc(w)}" aria-pressed="false"></button>` : ''}</span>`).join('')}</div>`;
+  body.querySelectorAll('.gap').forEach(b => b.onclick = () => { const on = !b.classList.contains('on'); b.classList.toggle('on', on); b.textContent = on ? sym : ''; b.setAttribute('aria-pressed', on); });
+  checkBtn(acts).onclick = () => {
+    let ok = true;
+    body.querySelectorAll('.gap').forEach(b => {
+      const j = +b.dataset.j, on = b.classList.contains('on'), c = correct.has(j); b.disabled = true;
+      if (on && c) b.classList.add('right'); else if (on && !c) { b.classList.add('wrong'); ok = false; } else if (!on && c) { b.classList.add('miss'); b.textContent = sym; ok = false; }
+    });
+    const sol = kind === 'split' ? esc(it.t).replace(/ \/ /g, ' <b>/</b> ') : esc(it.t).replace(/,/g, '<b>,</b>');
+    record(ok); showFb(fb, ok, sol, it.x); nextBtn(acts);
+  };
+}
+
+// --- Auswertung ---
+function viewSummary() {
+  const n = SES.list.length, c = SES.res.filter(Boolean).length;
+  const lvB = levelOf(S.xp - SES.xp);
+  let stars = 0, bonus = 0, prevStars = 0;
+  if (SES.mode === 'type') { stars = starsFor(c, n); prevStars = S.stars[SES.tid] || 0; bonus = stars === 3 ? 20 : stars === 2 ? 10 : stars === 1 ? 5 : 0; S.stars[SES.tid] = Math.max(prevStars, stars); }
+  else bonus = c === n ? 20 : c >= n * .75 ? 10 : 0;
+  S.xp += bonus; S.rounds++; if (c === n) S.perfect++;
+  touchStreak();
+  const neu = checkTrophies(); save();
+  const lvA = levelOf(S.xp); const lv = LEVELS[lvA];
+  const wrong = SES.list.map((p, k) => ({ ...p, k })).filter(p => !SES.res[p.k]);
+  const solText = (t, it) => { const kind = it.k || t.kind;
+    if (kind === 'mc') return esc((it.o || t.opts)[it.a]);
+    if (kind === 'input') return esc(it.a[0]);
+    if (kind === 'mark') { const hh = tokenize(it.t).filter(k => k.hit).map(k => k.w); return hh.length ? esc(hh.join(', ')) : 'keine'; }
+    return esc(it.t); };
+  const qText = (t, it) => { const kind = it.k || t.kind;
+    if (kind === 'mark') return esc(it.t.replace(/[\[\]]/g, ''));
+    if (kind === 'split') return esc(it.t.replace(/ \/ /g, ' '));
+    if (kind === 'comma') return esc(it.t.replace(/,/g, ''));
+    return (it.q || '') + (it.t && kind === 'input' ? ` <span class="tag">→ ${esc(it.t)}</span>` : ''); };
+  const headline = c === n ? 'Fehlerfrei. Stark.' : c >= n * .75 ? 'Gut gemacht.' : 'Weiter üben lohnt sich.';
+  mount(`<div class="summary">
+    <section class="card" id="sumcard">
+      <div class="tag">${esc(SES.title)}</div>
+      <h2 class="sumh" style="margin:8px 0">${headline}</h2>
+      ${SES.mode === 'type' ? `<div class="bigstars" aria-label="${stars} von 3 Sternen">${[0, 1, 2].map(i => `<span class="${i < stars ? 'on' : ''}" style="--d:${i * 220}ms">${i < stars ? '★' : '☆'}</span>`).join('')}</div>` : ''}
+      <p class="lead2"><span class="mono b">${c} von ${n}</span> richtig.</p>
+      ${SES.mode === 'type' && stars < 3 ? `<p class="small">${stars === 0 ? 'Für den ersten Stern brauchst du 6 von 8.' : 'Für 3 Sterne brauchst du alle richtig.'}${prevStars > stars ? ` Dein Bestwert bleibt bei ${prevStars} ${prevStars === 1 ? 'Stern' : 'Sternen'}.` : ''}</p>` : ''}
+      <div class="gain"><span class="mono b" data-count="${SES.xp + bonus}" data-prefix="+" data-suffix=" XP">+${SES.xp + bonus} XP</span><span class="small">${bonus ? `davon ${bonus} Bonus` : 'kein Bonus in dieser Runde'}</span></div>
+      <p class="small">Serie: <span class="mono b">${streakNow()} ${streakNow() === 1 ? 'Tag' : 'Tage'}</span></p>
+      ${lvA > lvB ? `<div class="fb good"><div class="fbt">Neue Stufe: ${lv.name}</div><div class="fbb">${lv.d}</div></div>` : ''}
+      ${neu.length ? `<div class="fb good"><div class="fbt">${neu.length === 1 ? 'Neuer Pokal!' : neu.length + ' neue Pokale!'}</div><div class="trophies">${neu.map(t => trophyCard(t, true)).join('')}</div></div>` : ''}
+      ${wrong.length ? `<div class="miss"><div class="tag">Das kommt wieder</div><div class="recap">${wrong.map(p => { const t = TBY[p.t], it = t.items[p.i]; return `<div class="it"><div class="small">${t.name}</div><div class="qq">${qText(t, it)}</div><div class="a">${solText(t, it)}</div></div>`; }).join('')}</div></div>` : ''}
+    </section>
+    <button class="btn btn-primary block" id="again">Noch eine Runde</button>
+    <button class="btn block" id="home">Zum Lernpfad</button></div>`);
+  $app.querySelector('#again').onclick = SES.again;
+  $app.querySelector('#home').onclick = () => go('grammar');
+  if (stars === 3 || c === n || neu.length || lvA > lvB) setTimeout(() => confetti($app.querySelector('#sumcard')), 250);
+}
+
+// ---------- Leseverstehen ----------
+function qMax(q) { return q.k === 'rfk' || q.k === 'odd' ? q.st.length : q.k === 'rf' ? q.st.length / 2 : q.p; }
+function maxPts(r) { return r.qs.reduce((s, q) => s + qMax(q), 0); }
+function viewReadList() {
+  mount(`
+    <div class="row"><h2>Leseverstehen</h2><span class="small">ca. 15 Minuten pro Text</span></div>
+    <p class="small" style="margin-bottom:12px">Literarische Texte mit Zeilennummern und Fragen wie in der Prüfung: richtig / falsch / kein Hinweis, Pronomen-Bezüge, Wortbedeutung und offene Fragen. Pro erreichtem Punkt gibt es 4 XP.</p>
+    <div class="path">${READ.map((r, k) => { const b = S.rd[r.id], mx = maxPts(r); const st = b ? (b.best >= .9 * mx ? 3 : b.best >= .75 * mx ? 2 : b.best >= .5 * mx ? 1 : 0) : 0; return `
+      <article class="card st" style="--i:${k}">
+        <div class="num mono" aria-hidden="true">${k + 1}</div>
+        <div class="stbody">
+          <h3>${esc(r.title)}</h3>
+          <div class="sub">${r.genre} · ${r.lines.length} Zeilen · ${r.qs.length} Aufgaben · ${fmt(mx)} Punkte</div>
+          <p class="small" style="margin-top:6px;font-family:var(--font-display)">${esc(r.lines[0])} …</p>
+          <div class="starsrow"><span class="stars">${starTxt(st)}</span><span class="small">${b ? 'Bestwert ' + fmt(b.best) + ' / ' + fmt(mx) : 'noch nicht gelöst'}</span></div>
+        </div>
+        <button class="btn" data-r="${r.id}">${b ? 'Nochmals' : 'Lesen'}</button>
+      </article>`; }).join('')}</div>
+    <p class="small" style="margin-top:20px">Alle Texte sind eigene Übungstexte im Stil der Prüfung. Die Originalprüfungen findest du auf der Website der Thurgauer Kantonsschulen.</p>`, { head: true });
+  $app.querySelectorAll('[data-r]').forEach(b => b.onclick = () => viewReader(b.dataset.r));
+}
+
+function viewReader(rid) {
+  const r = READ.find(x => x.id === rid); const A = {}; let done = false, finished = false; const self = {};
+  const seg = (name, labels, vals) => `<div class="segb" role="group">${labels.map((l, k) => `<button data-n="${name}" data-v="${vals[k]}">${l}</button>`).join('')}</div>`;
+  const qHtml = (q, qi) => {
+    let inner = '';
+    if (q.k === 'rfk' || q.k === 'rf') {
+      const L = q.k === 'rfk' ? ['richtig', 'falsch', 'kein Hinweis'] : ['richtig', 'falsch'], V = q.k === 'rfk' ? ['r', 'f', 'k'] : ['r', 'f'];
+      inner = `<table class="stbl">${q.st.map((s, si) => `<tr><td>${esc(s.s)}<div class="xpl" id="x-${qi}-${si}"></div></td><td class="c">${seg(qi + '-' + si, L, V)}</td></tr>`).join('')}</table>`;
+    } else if (q.k === 'odd') {
+      inner = q.st.map((s, si) => `<div style="margin-top:${si ? 14 : 0}px"><div class="ow" style="font-family:var(--font-display);font-weight:600;margin-bottom:6px">${esc(s.w)}</div>${seg(qi + '-' + si, s.o.map(esc), s.o.map((_, k) => k))}<div class="xpl" id="x-${qi}-${si}"></div></div>`).join('');
+    } else if (q.k === 'mc') {
+      inner = `<div class="opts">${q.o.map((o, k) => `<button class="opt" data-n="${qi}-0" data-v="${k}"><span class="ltr mono" aria-hidden="true">${'ABCD'[k]}</span><span>${esc(o)}</span></button>`).join('')}</div><div class="xpl" id="x-${qi}-0"></div>`;
+    } else {
+      inner = `<textarea id="ta-${qi}" placeholder="Antworte in ganzen Sätzen …" aria-label="Antwort zu Aufgabe ${qi + 1}"></textarea><div id="m-${qi}"></div>`;
+    }
+    return `<section class="card qbox" id="q-${qi}"><div class="qh"><span class="qn">${qi + 1}</span><span class="qt">${q.q}</span><span class="pts">${fmt(qMax(q))} P.</span></div>${inner}</section>`;
+  };
+  mount(`
+    <div class="rtop"><button class="btn sm" id="back">Alle Texte</button><span class="mono small">Leseverstehen · ${fmt(maxPts(r))} Punkte</span></div>
+    <p class="small" style="margin-top:12px">Zeilenangaben in den Fragen kannst du antippen: Die Stelle wird im Text markiert.</p>
+    <div class="reader">
+      <article class="textpane" aria-label="Text">
+        <h2>${esc(r.title)}</h2>
+        ${r.lines.map((l, k) => `<div class="ln" id="ln-${k + 1}"><span>${(k + 1) % 5 === 0 || k === 0 ? k + 1 : ''}</span><span>${esc(l)}</span></div>`).join('')}
+        <div class="src">Eigener Übungstext im Stil der Aufnahmeprüfung</div>
+      </article>
+      <div>
+        <div class="qs">${r.qs.map(qHtml).join('')}</div>
+        <div class="total" id="totbar"><span id="tot">Beantworte alle Aufgaben, dann werte aus.</span><button class="btn btn-primary" id="eval">Auswerten</button></div>
+        <div id="rres"></div>
+      </div>
+    </div>`, { wide: true });
+  $app.querySelector('#back').onclick = () => go('read');
+  $app.querySelectorAll('.qt, .stbl td:first-child, .ow').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/Z\. (\d+)(?:[\/–-](\d+))?/g, (m, a, b) => `<button class="linkbtn" data-l="${a}-${b || a}">${m}</button>`);
+  });
+  $app.querySelectorAll('[data-l]').forEach(b => b.onclick = () => {
+    const [a, z] = b.dataset.l.split('-').map(Number);
+    $app.querySelectorAll('.ln.hl').forEach(x => x.classList.remove('hl'));
+    for (let k = a; k <= z; k++) $app.querySelector('#ln-' + k)?.classList.add('hl');
+    $app.querySelector('#ln-' + a)?.scrollIntoView({ block: 'center', behavior: reduced() ? 'auto' : 'smooth' });
+  });
+  $app.querySelectorAll('[data-n]').forEach(b => b.onclick = () => {
+    if (done) return; A[b.dataset.n] = b.dataset.v;
+    $app.querySelectorAll(`[data-n="${b.dataset.n}"]`).forEach(o => o.classList.toggle('sel', o === b));
+  });
+  const total = () => {
+    let auto = 0, slf = 0, open = 0;
+    r.qs.forEach((q, qi) => {
+      if (q.k === 'open') { open++; if (self[qi] != null) slf += self[qi]; return; }
+      const val = q.k === 'rf' ? .5 : q.k === 'mc' ? q.p : 1;
+      (q.k === 'mc' ? [{ a: q.a }] : q.st).forEach((s, si) => { if (String(A[qi + '-' + si]) === String(s.a)) auto += val; });
+    });
+    const rated = Object.keys(self).length, sum = auto + slf, mx = maxPts(r);
+    $app.querySelector('#tot').innerHTML = `<b>${fmt(sum)} / ${fmt(mx)}</b> &nbsp;${rated < open ? `Bewerte noch ${open - rated} offene Antwort${open - rated > 1 ? 'en' : ''} selbst.` : 'Fertig bewertet.'}`;
+    if (rated === open && !finished) {
+      finished = true;
+      const prev = S.rd[r.id] ? S.rd[r.id].best : 0, gain = Math.max(0, Math.round((sum - prev) * 4)), lvB = levelOf(S.xp);
+      if (sum > prev || !S.rd[r.id]) S.rd[r.id] = { best: Math.max(sum, prev), d: Date.now() };
+      S.xp += gain; touchStreak(); const neu = checkTrophies(); save();
+      const lvA = levelOf(S.xp);
+      const res = $app.querySelector('#rres');
+      res.innerHTML = `<section class="card summary" style="margin-top:16px;position:relative;overflow:hidden" id="rcard">
+        <div class="tag">${esc(r.title)}</div><h2 class="sumh" style="margin:8px 0">${sum >= .9 * mx ? 'Genau gelesen.' : sum >= .7 * mx ? 'Gut gemacht.' : 'Lies die Musterlösungen genau durch.'}</h2>
+        <p class="lead2"><span class="mono b">${fmt(sum)} von ${fmt(mx)}</span> Punkten.</p>
+        <div class="gain"><span class="mono b">+${gain} XP</span><span class="small">${prev && gain === 0 ? 'XP gibt es nur, wenn du deinen Bestwert verbesserst.' : '4 XP pro neuem Punkt'}</span></div>
+        ${lvA > lvB ? `<div class="fb good"><div class="fbt">Neue Stufe: ${LEVELS[lvA].name}</div></div>` : ''}
+        ${neu.length ? `<div class="fb good"><div class="fbt">${neu.length === 1 ? 'Neuer Pokal!' : neu.length + ' neue Pokale!'}</div><div class="trophies">${neu.map(t => trophyCard(t, true)).join('')}</div></div>` : ''}
+        <button class="btn block" id="rback">Zu den Texten</button></section>`;
+      res.querySelector('#rback').onclick = () => go('read');
+      if (gain || neu.length) setTimeout(() => confetti(res.querySelector('#rcard')), 200);
+    }
+  };
+  $app.querySelector('#eval').onclick = ev => {
+    if (done) return;
+    const missing = r.qs.some((q, qi) => q.k === 'open' ? !$app.querySelector('#ta-' + qi).value.trim() : (q.k === 'mc' ? [0] : q.st).some((_, si) => A[qi + '-' + si] == null));
+    if (missing && !ev.target.dataset.sure) { ev.target.dataset.sure = 1; $app.querySelector('#tot').textContent = 'Es fehlen noch Antworten. Nochmals tippen, um trotzdem auszuwerten.'; return; }
+    done = true; ev.target.remove();
+    r.qs.forEach((q, qi) => {
+      if (q.k === 'open') {
+        $app.querySelector('#ta-' + qi).readOnly = true;
+        const m = $app.querySelector('#m-' + qi);
+        m.innerHTML = `<div class="model"><b>Musterlösung</b><div>${esc(q.model)}</div><ul>${q.crit.map(c => `<li>${esc(c)}</li>`).join('')}</ul></div>
+          <div class="selfscore">Deine Punkte: <div class="segb">${Array.from({ length: q.p + 1 }, (_, k) => `<button data-s="${k}">${k}</button>`).join('')}</div></div>`;
+        m.querySelectorAll('[data-s]').forEach(b => b.onclick = () => { if (finished) return; self[qi] = +b.dataset.s; m.querySelectorAll('[data-s]').forEach(o => o.classList.toggle('sel', o === b)); total(); });
+        return;
+      }
+      (q.k === 'mc' ? [{ a: q.a, x: q.x }] : q.st).forEach((s, si) => {
+        const n = qi + '-' + si, given = A[n];
+        $app.querySelectorAll(`[data-n="${n}"]`).forEach(o => { o.disabled = true; o.classList.remove('sel');
+          if (String(o.dataset.v) === String(s.a)) o.classList.add(o.classList.contains('opt') ? 'good' : 'right');
+          else if (o.dataset.v === given) o.classList.add(o.classList.contains('opt') ? 'bad' : 'wrong'); });
+        const xe = $app.querySelector(`#x-${n}`), ok = String(given) === String(s.a);
+        if (xe && (!ok || s.x)) { xe.textContent = (ok ? '' : given == null ? 'Nicht beantwortet. ' : 'Falsch. ') + (s.x || ''); if (!ok) xe.classList.add('bad'); }
+      });
+    });
+    total();
+  };
+}
+
+// ---------- Pokale & Lernstand ----------
+function viewStats() {
+  const all = TYPES.map(t => ({ t, m: mastery(t) }));
+  const n = all.reduce((s, a) => s + a.m.n, 0), seen = all.reduce((s, a) => s + a.m.seen, 0), sure = all.reduce((s, a) => s + a.m.sure, 0);
+  const tries = Object.values(S.st).reduce((s, x) => s + x.n, 0), oks = Object.values(S.st).reduce((s, x) => s + x.ok, 0);
+  const starSum = TYPES.reduce((s, t) => s + (S.stars[t.id] || 0), 0);
+  mount(`
+    <div class="row"><h2>Pokalschrank</h2><span class="small">${Object.keys(S.tro).length} von ${TROPHIES.length}</span></div>
+    <div class="trophies">${TROPHIES.map(t => trophyCard(t)).join('')}</div>
+    <div class="row"><h2>Lernstand</h2></div>
+    <div class="statgrid">
+      <div class="card"><b>${sure}</b><span class="small">von ${n} Aufgaben sicher</span></div>
+      <div class="card"><b>${seen}</b><span class="small">Aufgaben gesehen</span></div>
+      <div class="card"><b>${tries ? Math.round(oks / tries * 100) : 0}%</b><span class="small">Trefferquote (${tries})</span></div>
+      <div class="card"><b>${starSum}/${TYPES.length * 3}</b><span class="small">Sterne gesammelt</span></div>
+    </div>
+    <section class="card" style="margin-top:12px"><div class="tag">Alle Aufgabentypen</div>
+      <div class="typelist">${all.map(a => `<div class="r"><span>${a.t.name}</span>${segs(a.m.p)}<span class="stars">${starTxt(S.stars[a.t.id] || 0)}</span></div>`).join('')}</div>
+    </section>
+    <section class="card review" style="margin-top:12px;grid-template-columns:1fr">
+      <div><h3>Lernstand sichern</h3><p class="small">Dein Fortschritt liegt nur in diesem Browser. Kopiere den Code und bewahre ihn auf, zum Beispiel in deinen Notizen. Auf einem anderen Gerät fügst du ihn unten ein.</p></div>
+      <textarea id="code" class="codebox" readonly aria-label="Lernstand-Code"></textarea>
+      <div class="ansrow"><button class="btn btn-primary" id="copy">Code kopieren</button><span class="small" id="copymsg" style="align-self:center"></span></div>
+      <textarea id="imp" class="codebox" placeholder="Code hier einfügen …" aria-label="Code einfügen"></textarea>
+      <div class="ansrow"><button class="btn" id="load">Lernstand laden</button><span class="small" id="loadmsg" style="align-self:center"></span></div>
+    </section>
+    <div style="margin-top:16px"><button class="btn sm" id="reset">Fortschritt zurücksetzen</button></div>`, { head: true });
+  const code = btoa(unescape(encodeURIComponent(JSON.stringify(S))));
+  $app.querySelector('#code').value = code;
+  $app.querySelector('#copy').onclick = () => {
+    const ta = $app.querySelector('#code'), msg = $app.querySelector('#copymsg');
+    const fallback = () => { ta.focus(); ta.select(); msg.textContent = 'Code markiert. Jetzt mit Cmd/Ctrl+C kopieren.'; };
+    try { navigator.clipboard.writeText(code).then(() => msg.textContent = 'Kopiert.', fallback); } catch (e) { fallback(); }
+  };
+  $app.querySelector('#load').onclick = () => {
+    try {
+      const p = JSON.parse(decodeURIComponent(escape(atob($app.querySelector('#imp').value.trim()))));
+      if (!p || typeof p.it !== 'object') throw 0;
+      S = Object.assign(fresh(), p); save(); lastXpShown = null; viewStats();
+    } catch (e) { $app.querySelector('#loadmsg').textContent = 'Dieser Code ist ungültig. Prüfe, ob er vollständig kopiert wurde.'; }
+  };
+  const rb = $app.querySelector('#reset');
+  rb.onclick = () => {
+    if (!rb.dataset.sure) { rb.dataset.sure = 1; rb.textContent = 'Sicher? Nochmals tippen zum Löschen'; return; }
+    S = fresh(); save(); lastXpShown = null; viewStats();
+  };
+}
+
+go(tab);
+
+</script>
+</body></html>
